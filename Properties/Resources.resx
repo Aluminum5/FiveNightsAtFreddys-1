@@ -1,0 +1,553 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="BBHello" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\audio\bbhello.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="BBHi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\audio\bbhi.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="BBLaugh" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\audio\bblaugh.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="BonnieScream" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\audio\bonniescream.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CameraMap" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\cameramap\cameramap.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ChicaScream" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\audio\chicascream.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="FoxRunning1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\audio\foxrunning1.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="FoxyRunning2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\audio\foxyrunning2.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="FoxyRunning3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\audio\foxyrunning3.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="FoxyRunning4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\audio\foxyrunning4.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="FreddyMask" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\freddymask.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GameAreaFlashlightBB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera10\gameareaflashlightbb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GameAreaFlashlightBBAndMangle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera10\gameareaflashlightbbandmangle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GameAreaFlashlightBBAndToyFreddy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera10\gameareaflashlightbbandtoyfreddy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GameAreaFlashlightNoBB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera10\gameareaflashlightnobb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GameAreaFlashlightNoBBToyFreddy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera10\gameareaflashlightnobbtoyfreddy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GameAreaNoFlashlightBB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera10\gameareanoflashlightbb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GameAreaNoFlashlightNoBB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera10\gameareanoflashlightnobb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GoldenFreddyScream" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\audio\goldenfreddyscream.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Jackinthebox" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\audio\jackinthebox.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="KidsCoveFlashlightMangle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera12\kidscoveflashlightmangle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="KidsCoveFlashlightNoMangle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera12\kidscoveflashlightnomangle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LeftAirVentFlashlightBB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera5\leftairventflashlightbb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LeftAirVentFlashlightEndoskeleton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera5\leftairventflashlightendoskeleton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LeftAirVentFlashlightNoCharacters" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera5\leftairventflashlightnocharacters.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LeftAirVentFlashlightOldBonnie" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera5\leftairventflashlightoldbonnie.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LeftAirVentFlashlightToyChica" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera5\leftairventflashlighttoychica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LightButton_Off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\lightbutton_off.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LightButton_Off1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\lightbutton_off.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LightButton_On" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\lightbutton_on.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LightButton_On1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\lightbutton_on.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MainHallFlashlightMangle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera7\mainhallflashlightmangle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MainHallFlashlightNoCharacters" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera7\mainhallflashlightnocharacters.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MainHallFlashlightOldBonnie" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera7\mainhallflashlightoldbonnie.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MainHallFlashlightOldFreddy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera7\mainhallflashlightoldfreddy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MainHallFlashlightToyChica" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera7\mainhallflashlighttoychica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MainHallNoFlashlightMarionetteBigger" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera7\mainhallnoflashlightmarionettebigger.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MainHallNoFlashlightMarionetteBiggest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera7\mainhallnoflashlightmarionettebiggest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MainHallNoFlashlightMarrionette" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera7\mainhallnoflashlightmarrionette.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MainHallNoFlashlightToyChica" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera7\mainhallnoflashlighttoychica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MainMenuBonnieGlitch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\startmenuitems\mainmenubonnieglitch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MainMenuChicaGitch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\startmenuitems\mainmenuchicagitch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MainMenuFreddyGlitch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\startmenuitems\mainmenufreddyglitch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MainMenuNoGlitch" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\startmenuitems\mainmenunoglitch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MangleStatic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\audio\manglestatic.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MarrionetteScream" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\audio\marrionettescream.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MusicBoxSong" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\audio\musicboxsong.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="OfficeBB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\officebb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OfficeFlashlightFoxyHall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\officeflashlightfoxyhall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OfficeFlashlightGoldenFreddyHall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\officeflashlightgoldenfreddyhall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OfficeFlashlightMangleAndFoxyHall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\officeflashlightmangleandfoxyhall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OfficeFlashlightMangleHall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\officeflashlightmanglehall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OfficeFlashlightOldBonnieAndFoxyHall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\officeflashlightoldbonnieandfoxyhall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OfficeFlashlightOldBonnieHall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\officeflashlightoldbonniehall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OfficeFlashlightOldFreddyHall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\officeflashlightoldfreddyhall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OfficeFlashlightToyChicaHall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\officeflashlighttoychicahall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OfficeFlashlightToyFreddyFarHall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\officeflashlighttoyfreddyfarhall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OfficeFlashlightToyFreddyHall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\officeflashlighttoyfreddyhall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OfficeGoldenFreddy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\officegoldenfreddy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OfficeLeftAirVentBB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\officeleftairventbb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OfficeLeftAirVentLightNoCharacter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\officeleftairventlightnocharacter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OfficeLeftAirVentToyChica" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\officeleftairventtoychica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OfficeMangle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\officemangle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OfficeNoFlashlightNoCharacters" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\officenoflashlightnocharacters.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OfficeOldBonnie" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\officeoldbonnie.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OfficeOldChica" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\officeoldchica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OfficeOldFreddy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\officeoldfreddy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OfficePuppetPlate" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\officepuppetplate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OfficeRightAirVentLightNoCharacter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\officerightairventlightnocharacter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OfficeRightAirVentMangle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\officerightairventmangle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OfficeRightAirVentToyBonnie" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\officerightairventtoybonnie.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OfficeShadowBonnie" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\officeshadowbonnie.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OfficeToyFreddy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\officetoyfreddy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartRoom3NoFlashlightOldFreddy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera3\partroom3noflashlightoldfreddy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartsAndServiceFlashlightAllOldCharacters" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera8\partsandserviceflashlightalloldcharacters.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartsAndServiceFlashlightChicaAndFreddy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera8\partsandserviceflashlightchicaandfreddy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartsAndServiceFlashlightFoxy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera8\partsandserviceflashlightfoxy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartsAndServiceFlashlightFreddy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera8\partsandserviceflashlightfreddy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartsAndServiceFlashlightShadowFreddy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera8\partsandserviceflashlightshadowfreddy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartyRoom1FlashlightChica" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera1\partyroom1flashlightchica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartyRoom1FlashlightEmpty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera1\partyroom1flashlightempty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartyRoom1FlashlightOldBonnie" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera1\partyroom1flashlightoldbonnie.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartyRoom2FlashlightMangle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera2\partyroom2flashlightmangle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartyRoom2FlashlightOldChica" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera2\partyroom2flashlightoldchica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartyRoom2FlashlightToyBonnie" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera2\partyroom2flashlighttoybonnie.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartyRoom2NoFlashlightOldChica" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera2\partyroom2noflashlightoldchica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartyRoom3FlashlightNoCharacters" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera3\partyroom3flashlightnocharacters.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartyRoom3FlashlightOldFreddy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera3\partyroom3flashlightoldfreddy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartyRoom3FlashlightToyBonnie" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera3\partyroom3flashlighttoybonnie.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartyRoom4FlashlightChica" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera4\partyroom4flashlightchica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartyRoom4FlashlightNoCharacters" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera4\partyroom4flashlightnocharacters.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartyRoom4FlashlightNoPuppet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera4\partyroom4flashlightnopuppet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartyRoom4FlashlightToyBonnie" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera4\partyroom4flashlighttoybonnie.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartyRoom4FlashlightToyChica" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera4\partyroom4flashlighttoychica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartyRoom4NoFlashlightToyBonnie" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera4\partyroom4noflashlighttoybonnie.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PrizeCornerFlashlightEndoskeleton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera11\prizecornerflashlightendoskeleton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PrizeCornerFlashlightMangle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera11\prizecornerflashlightmangle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PrizeCornerFlashlightMarionette" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera11\prizecornerflashlightmarionette.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PrizeCornerFlashlightMarionette_Bigger" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera11\prizecornerflashlightmarionette bigger.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PrizeCornerFlashlightNoCharacters" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera11\prizecornerflashlightnocharacters.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PrizeCornerFlashlightNoMarionette" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera11\prizecornerflashlightnomarionette.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PrizeCornerNoFlashlightNoCharacters" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera11\prizecornernoflashlightnocharacters.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RightAirVentFlashlightMangle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera6\rightairventflashlightmangle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RightAirVentFlashlightNoCharacters" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera6\rightairventflashlightnocharacters.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RightAirVentFlashlightOldChica" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera6\rightairventflashlightoldchica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RightAirVentFlashlightToyBonnie" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera6\rightairventflashlighttoybonnie.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ShowStageFlashlightAllCharacters" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera9\showstageflashlightallcharacters.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ShowStageFlashlightToyFreddy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera9\showstageflashlighttoyfreddy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ShowStageFlashlightToyFreddyAndToyChica" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera9\showstageflashlighttoyfreddyandtoychica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ShowStageNoFlashlightAllCharacters" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera9\showstagenoflashlightallcharacters.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ShowStageNoFlashlightNoCharcaters" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera9\showstagenoflashlightnocharcaters.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ShowStageNoFlashlightToyFreddy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera9\showstagenoflashlighttoyfreddy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ShowStageNoFlashlightToyFreddyAndToyChica" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera9\showstagenoflashlighttoyfreddyandtoychica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StartMenuThemeMusic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\audio\startmenuthememusic.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="String" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Continue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\startmenuitems\continue.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ContinueMouseOver" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\startmenuitems\continuemouseover.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NewGame" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\startmenuitems\newgame.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NewGameMouseOver" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\startmenuitems\newgamemouseover.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StartScreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\startmenuitems\startscreen.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartyRoom1FlashlightMangle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera1\partyroom1flashlightmangle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FoxyScare" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\scares\foxyscare.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GoldenFreddyScare" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\scares\goldenfreddyscare.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MangleScare" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\scares\manglescare.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MarionetteScare" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\scares\marionettescare.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OldBonnieScare" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\scares\oldbonniescare.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OldChicaScare" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\scares\oldchicascare.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OldFreddyScare" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\scares\oldfreddyscare.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ToyBonnieScare" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\scares\toybonniescare.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ToyChicaScare" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\scares\toychicascare.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ToyFreddyScare" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\scares\toyfreddyscare.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="KidsCoveNoFlashlightMangle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera12\kidscovenoflashlightmangle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LeftAirVentNoFlashlightNoCharacters" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera5\leftairventnoflashlightnocharacters.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MainHallNoFlashlightNoCharacters" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera7\mainhallnoflashlightnocharacters.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OfficeFlashlightNoCharacters" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\office\officeflashlightnocharacters.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartsAndServiceFlashlightAllOldCharacters1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera8\partsandserviceflashlightalloldcharacters.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartsAndServiceFlashlightNoOldCharacters" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera8\partsandserviceflashlightnooldcharacters.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartsAndServiceNoFlashlightNoOldCharacters" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera8\partsandservicenoflashlightnooldcharacters.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartyRoom1NoFlashlightNoCharacters" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera1\partyroom1noflashlightnocharacters.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartyRoom2FlashlightNoCharacters" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera2\partyroom2flashlightnocharacters.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartyRoom2NoFlashlightNoCharacters" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera2\partyroom2noflashlightnocharacters.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartyRoom3NoFlashlightNoCharacters" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera3\partyroom3noflashlightnocharacters.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PartyRoom4NoFlashlightNoCharacters" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera4\partyroom4noflashlightnocharacters.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RightAirVentNoFlashlightNoCharacters" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\camera6\rightairventnoflashlightnocharacters.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+</root>

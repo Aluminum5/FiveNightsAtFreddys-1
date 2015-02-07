@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1B5F335F-F10A-4713-96F4-A9053DFD1BB5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FNAF</RootNamespace>
+    <AssemblyName>FNAF</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\FormData.cs" />
+    <Compile Include="Common\Global.cs" />
+    <Compile Include="Controls\CameraMap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CameraMap.Designer.cs">
+      <DependentUpon>CameraMap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\LowerCameraButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\LowerCameraButton.Designer.cs">
+      <DependentUpon>LowerCameraButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Engines\SoundEngine.cs" />
+    <Compile Include="Engines\ThreadingEngine.cs" />
+    <Compile Include="Forms\CameraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CameraForm.Designer.cs">
+      <DependentUpon>CameraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FreddyHeadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FreddyHeadForm.Designer.cs">
+      <DependentUpon>FreddyHeadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FreddyScare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FreddyScare.Designer.cs">
+      <DependentUpon>FreddyScare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StartMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StartMenuForm.Designer.cs">
+      <DependentUpon>StartMenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Common\WindowControls.cs" />
+    <EmbeddedResource Include="Controls\CameraMap.resx">
+      <DependentUpon>CameraMap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\LowerCameraButton.resx">
+      <DependentUpon>LowerCameraButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CameraForm.resx">
+      <DependentUpon>CameraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FreddyHeadForm.resx">
+      <DependentUpon>FreddyHeadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FreddyScare.resx">
+      <DependentUpon>FreddyScare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StartMenuForm.resx">
+      <DependentUpon>StartMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Audio\BBHello.wav" />
+    <Content Include="Resources\Audio\BBHi.wav" />
+    <Content Include="Resources\Audio\BBLaugh.wav" />
+    <Content Include="Resources\Audio\BonnieScream.wav" />
+    <Content Include="Resources\Audio\ChicaScream.wav" />
+    <Content Include="Resources\Audio\FoxRunning1.wav" />
+    <Content Include="Resources\Audio\FoxyRunning2.wav" />
+    <Content Include="Resources\Audio\FoxyRunning3.wav" />
+    <Content Include="Resources\Audio\FoxyRunning4.wav" />
+    <Content Include="Resources\Audio\GoldenFreddyScream.wav" />
+    <Content Include="Resources\Audio\Jackinthebox.wav" />
+    <Content Include="Resources\Audio\MangleStatic.wav" />
+    <Content Include="Resources\Audio\MarrionetteScream.wav" />
+    <Content Include="Resources\Audio\MusicBoxSong.wav" />
+    <Content Include="Resources\Audio\StartMenuThemeMusic.wav" />
+    <Content Include="Resources\Images\Camera10\GameAreaFlashlightBB.png" />
+    <Content Include="Resources\Images\Camera10\GameAreaFlashlightBBAndMangle.png" />
+    <Content Include="Resources\Images\Camera10\GameAreaFlashlightBBAndToyFreddy.png" />
+    <Content Include="Resources\Images\Camera10\GameAreaFlashlightNoBB.png" />
+    <Content Include="Resources\Images\Camera10\GameAreaFlashlightNoBBToyFreddy.png" />
+    <Content Include="Resources\Images\Camera10\GameAreaNoFlashlightBB.png" />
+    <Content Include="Resources\Images\Camera10\GameAreaNoFlashlightNoBB.png" />
+    <Content Include="Resources\Images\Camera11\PrizeCornerFlashlightEndoskeleton.png" />
+    <Content Include="Resources\Images\Camera11\PrizeCornerFlashlightMangle.png" />
+    <Content Include="Resources\Images\Camera11\PrizeCornerFlashlightMarionette Bigger.png" />
+    <Content Include="Resources\Images\Camera11\PrizeCornerFlashlightMarionette.png" />
+    <Content Include="Resources\Images\Camera11\PrizeCornerFlashlightNoCharacters.png" />
+    <Content Include="Resources\Images\Camera11\PrizeCornerFlashlightNoMarionette.png" />
+    <Content Include="Resources\Images\Camera11\PrizeCornerNoFlashlightNoCharacters.png" />
+    <Content Include="Resources\Images\Camera12\KidsCoveFlashlightMangle.png" />
+    <Content Include="Resources\Images\Camera12\KidsCoveFlashlightNoMangle.png" />
+    <Content Include="Resources\Images\Camera12\KidsCoveNoFlashlightMangle.png" />
+    <Content Include="Resources\Images\Camera1\PartyRoom1FlashlightChica.png" />
+    <Content Include="Resources\Images\Camera1\PartyRoom1FlashlightEmpty.png" />
+    <Content Include="Resources\Images\Camera1\PartyRoom1FlashlightOldBonnie.png" />
+    <Content Include="Resources\Images\Camera1\PartyRoom1NoFlashlightNoCharacters.png" />
+    <Content Include="Resources\Images\Camera1\PartyRoom1FlashlightMangle.png" />
+    <Content Include="Resources\Images\Camera2\PartyRoom2FlashlightMangle.png" />
+    <Content Include="Resources\Images\Camera2\PartyRoom2FlashlightNoCharacters.png" />
+    <Content Include="Resources\Images\Camera2\PartyRoom2FlashlightOldChica.png" />
+    <Content Include="Resources\Images\Camera2\PartyRoom2FlashlightToyBonnie.png" />
+    <Content Include="Resources\Images\Camera2\PartyRoom2NoFlashlightNoCharacters.png" />
+    <Content Include="Resources\Images\Camera2\PartyRoom2NoFlashlightOldChica.png" />
+    <Content Include="Resources\Images\Camera3\PartRoom3NoFlashlightOldFreddy.png" />
+    <Content Include="Resources\Images\Camera3\PartyRoom3FlashlightNoCharacters.png" />
+    <Content Include="Resources\Images\Camera3\PartyRoom3FlashlightOldFreddy.png" />
+    <Content Include="Resources\Images\Camera3\PartyRoom3FlashlightToyBonnie.png" />
+    <Content Include="Resources\Images\Camera3\PartyRoom3NoFlashlightNoCharacters.png" />
+    <Content Include="Resources\Images\Camera4\PartyRoom4FlashlightChica.png" />
+    <Content Include="Resources\Images\Camera4\PartyRoom4FlashlightNoCharacters.png" />
+    <Content Include="Resources\Images\Camera4\PartyRoom4FlashlightNoPuppet.png" />
+    <Content Include="Resources\Images\Camera4\PartyRoom4FlashlightToyBonnie.png" />
+    <Content Include="Resources\Images\Camera4\PartyRoom4FlashlightToyChica.png" />
+    <Content Include="Resources\Images\Camera4\PartyRoom4NoFlashlightNoCharacters.png" />
+    <Content Include="Resources\Images\Camera4\PartyRoom4NoFlashlightToyBonnie.png" />
+    <Content Include="Resources\Images\Camera5\LeftAirVentFlashlightBB.png" />
+    <Content Include="Resources\Images\Camera5\LeftAirVentFlashlightEndoskeleton.png" />
+    <Content Include="Resources\Images\Camera5\LeftAirVentFlashlightNoCharacters.png" />
+    <Content Include="Resources\Images\Camera5\LeftAirVentFlashlightOldBonnie.png" />
+    <Content Include="Resources\Images\Camera5\LeftAirVentFlashlightToyChica.png" />
+    <Content Include="Resources\Images\Camera5\LeftAirVentNoFlashlightNoCharacters.png" />
+    <Content Include="Resources\Images\Camera6\RightAirVentFlashlightMangle.png" />
+    <Content Include="Resources\Images\Camera6\RightAirVentFlashlightNoCharacters.png" />
+    <Content Include="Resources\Images\Camera6\RightAirVentFlashlightOldChica.png" />
+    <Content Include="Resources\Images\Camera6\RightAirVentFlashlightToyBonnie.png" />
+    <Content Include="Resources\Images\Camera6\RightAirVentNoFlashlightNoCharacters.png" />
+    <Content Include="Resources\Images\Camera7\MainHallFlashlightMangle.png" />
+    <Content Include="Resources\Images\Camera7\MainHallFlashlightNoCharacters.png" />
+    <Content Include="Resources\Images\Camera7\MainHallFlashlightOldBonnie.png" />
+    <Content Include="Resources\Images\Camera7\MainHallFlashlightOldFreddy.png" />
+    <Content Include="Resources\Images\Camera7\MainHallFlashlightToyChica.png" />
+    <Content Include="Resources\Images\Camera7\MainHallNoFlashlightNoCharacters.png" />
+    <Content Include="Resources\Images\Camera7\MainHallNoFlashlightMarionetteBigger.png" />
+    <Content Include="Resources\Images\Camera7\MainHallNoFlashlightMarionetteBiggest.png" />
+    <Content Include="Resources\Images\Camera7\MainHallNoFlashlightMarrionette.png" />
+    <Content Include="Resources\Images\Camera7\MainHallNoFlashlightToyChica.png" />
+    <Content Include="Resources\Images\Camera8\PartsAndServiceFlashlightAllOldCharacters.png" />
+    <Content Include="Resources\Images\Camera8\PartsAndServiceFlashlightChicaAndFreddy.png" />
+    <Content Include="Resources\Images\Camera8\PartsAndServiceFlashlightFoxy.png" />
+    <Content Include="Resources\Images\Camera8\PartsAndServiceFlashlightFreddy.png" />
+    <Content Include="Resources\Images\Camera8\PartsAndServiceFlashlightNoOldCharacters.png" />
+    <Content Include="Resources\Images\Camera8\PartsAndServiceFlashlightShadowFreddy.png" />
+    <Content Include="Resources\Images\Camera8\PartsAndServiceNoFlashlightNoOldCharacters.png" />
+    <Content Include="Resources\Images\Camera9\ShowStageFlashlightAllCharacters.png" />
+    <Content Include="Resources\Images\Camera9\ShowStageFlashlightToyFreddy.png" />
+    <Content Include="Resources\Images\Camera9\ShowStageFlashlightToyFreddyAndToyChica.png" />
+    <Content Include="Resources\Images\Camera9\ShowStageNoFlashlightAllCharacters.png" />
+    <Content Include="Resources\Images\Camera9\ShowStageNoFlashlightNoCharcaters.png" />
+    <Content Include="Resources\Images\Camera9\ShowStageNoFlashlightToyFreddy.png" />
+    <Content Include="Resources\Images\Camera9\ShowStageNoFlashlightToyFreddyAndToyChica.png" />
+    <Content Include="Resources\Images\CameraMap\CameraMap.gif" />
+    <Content Include="Resources\Images\Office\FreddyMask.png" />
+    <Content Include="Resources\Images\Office\LightButton_Off.gif" />
+    <Content Include="Resources\Images\Office\LightButton_Off.jpg" />
+    <Content Include="Resources\Images\Office\LightButton_On.gif" />
+    <Content Include="Resources\Images\Office\LightButton_On.jpg" />
+    <Content Include="Resources\Images\Office\OfficeBB.png" />
+    <Content Include="Resources\Images\Office\OfficeFlashlightFoxyHall.png" />
+    <Content Include="Resources\Images\Office\OfficeFlashlightGoldenFreddyHall.png" />
+    <Content Include="Resources\Images\Office\OfficeFlashlightMangleAndFoxyHall.png" />
+    <Content Include="Resources\Images\Office\OfficeFlashlightMangleHall.png" />
+    <Content Include="Resources\Images\Office\OfficeFlashlightNoCharacters.png" />
+    <Content Include="Resources\Images\Office\OfficeFlashlightOldBonnieAndFoxyHall.png" />
+    <Content Include="Resources\Images\Office\OfficeFlashlightOldBonnieHall.png" />
+    <Content Include="Resources\Images\Office\OfficeFlashlightOldFreddyHall.png" />
+    <Content Include="Resources\Images\Office\OfficeFlashlightToyChicaHall.png" />
+    <Content Include="Resources\Images\Office\OfficeFlashlightToyFreddyFarHall.png" />
+    <Content Include="Resources\Images\Office\OfficeFlashlightToyFreddyHall.png" />
+    <Content Include="Resources\Images\Office\OfficeGoldenFreddy.png" />
+    <Content Include="Resources\Images\Office\OfficeLeftAirVentBB.png" />
+    <Content Include="Resources\Images\Office\OfficeLeftAirVentLightNoCharacter.png" />
+    <Content Include="Resources\Images\Office\OfficeLeftAirVentToyChica.png" />
+    <Content Include="Resources\Images\Office\OfficeMangle.png" />
+    <Content Include="Resources\Images\Office\OfficeNoFlashlightNoCharacters.png" />
+    <Content Include="Resources\Images\Office\OfficeOldBonnie.png" />
+    <Content Include="Resources\Images\Office\OfficeOldChica.png" />
+    <Content Include="Resources\Images\Office\OfficeOldFreddy.png" />
+    <Content Include="Resources\Images\Office\OfficePuppetPlate.png" />
+    <Content Include="Resources\Images\Office\OfficeRightAirVentLightNoCharacter.png" />
+    <Content Include="Resources\Images\Office\OfficeRightAirVentMangle.png" />
+    <Content Include="Resources\Images\Office\OfficeRightAirVentToyBonnie.png" />
+    <Content Include="Resources\Images\Office\OfficeShadowBonnie.png" />
+    <Content Include="Resources\Images\Office\OfficeToyFreddy.png" />
+    <Content Include="Resources\Images\Scares\FoxyScare.gif" />
+    <Content Include="Resources\Images\Scares\GoldenFreddyScare.gif" />
+    <Content Include="Resources\Images\Scares\MangleScare.gif" />
+    <Content Include="Resources\Images\Scares\MarionetteScare.gif" />
+    <Content Include="Resources\Images\Scares\OldBonnieScare.gif" />
+    <Content Include="Resources\Images\Scares\OldChicaScare.gif" />
+    <Content Include="Resources\Images\Scares\OldFreddyScare.gif" />
+    <Content Include="Resources\Images\Scares\ToyBonnieScare.gif" />
+    <Content Include="Resources\Images\Scares\ToyChicaScare.gif" />
+    <Content Include="Resources\Images\Scares\ToyFreddyScare.gif" />
+    <Content Include="Resources\Images\StartMenuItems\Continue.jpg" />
+    <Content Include="Resources\Images\StartMenuItems\ContinueMouseOver.jpg" />
+    <Content Include="Resources\Images\StartMenuItems\NewGame.jpg" />
+    <Content Include="Resources\Images\StartMenuItems\NewGameMouseOver.jpg" />
+    <Content Include="Resources\Images\StartMenuItems\StartScreen.jpg" />
+    <None Include="Resources\Images\StartMenuItems\MainMenuNoGlitch.png" />
+    <None Include="Resources\Images\StartMenuItems\MainMenuFreddyGlitch.png" />
+    <None Include="Resources\Images\StartMenuItems\MainMenuBonnieGlitch.png" />
+    <None Include="Resources\Images\StartMenuItems\MainMenuChicaGitch.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
