@@ -81,18 +81,6 @@
     <Compile Include="Forms\CameraForm.Designer.cs">
       <DependentUpon>CameraForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FreddyHeadForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FreddyHeadForm.Designer.cs">
-      <DependentUpon>FreddyHeadForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FreddyScare.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FreddyScare.Designer.cs">
-      <DependentUpon>FreddyScare.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\StartMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,12 +98,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CameraForm.resx">
       <DependentUpon>CameraForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FreddyHeadForm.resx">
-      <DependentUpon>FreddyHeadForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FreddyScare.resx">
-      <DependentUpon>FreddyScare.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\StartMenuForm.resx">
       <DependentUpon>StartMenuForm.cs</DependentUpon>
