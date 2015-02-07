@@ -34,6 +34,7 @@ namespace FNAF.Controls
                         "ToyChicascare",
                         global::FNAF.Properties.Resources.ToyChicaScare
                     ),
+                    ScareScream = global::FNAF.Properties.Resources.ChicaScream
                 },
                 new Character()
                 {
@@ -259,6 +260,7 @@ namespace FNAF.Controls
             );
             WindowControls.ShowForm(cameraForm, (Button)sender, true);
             Global.PlaySound(global::FNAF.Properties.Resources.MusicBoxSong, true);
+            
         }
 
         private void Camera10Button_Click(object sender, EventArgs e)
@@ -320,6 +322,7 @@ namespace FNAF.Controls
             }
             );
             WindowControls.ShowForm(cameraForm, (Button)sender, true);
+            Global.PlaySound(global::FNAF.Properties.Resources.MangleStatic, true);
         }
 
         private void YouButtonPanel_Click(object sender, EventArgs e)
