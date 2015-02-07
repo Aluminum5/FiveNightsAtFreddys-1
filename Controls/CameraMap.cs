@@ -258,7 +258,7 @@ namespace FNAF.Controls
             }
             );
             WindowControls.ShowForm(cameraForm, (Button)sender, true);
-            Global.PlaySound(global::FNAF.Properties.Resources.MusicBoxSong, false);
+            Global.PlaySound(global::FNAF.Properties.Resources.MusicBoxSong, true);
         }
 
         private void Camera10Button_Click(object sender, EventArgs e)
@@ -279,6 +279,7 @@ namespace FNAF.Controls
             }
             );
             WindowControls.ShowForm(cameraForm, (Button)sender, true);
+            Global.PlaySound(global::FNAF.Properties.Resources.BBHi, false);
         }
 
         private void Camera11Button_Click(object sender, EventArgs e)
