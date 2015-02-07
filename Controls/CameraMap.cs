@@ -258,6 +258,7 @@ namespace FNAF.Controls
             }
             );
             WindowControls.ShowForm(cameraForm, (Button)sender, true);
+            Global.PlaySound(global::FNAF.Properties.Resources.MusicBoxSong, false);
         }
 
         private void Camera10Button_Click(object sender, EventArgs e)

@@ -1,1 +1,12 @@
 C:\Users\Riley\Source\Repos\FiveNightsAtFreddys\bin\Debug\FNAF.exe.config
+C:\Users\Riley\Source\Repos\FiveNightsAtFreddys\bin\Debug\FNAF.exe
+C:\Users\Riley\Source\Repos\FiveNightsAtFreddys\bin\Debug\FNAF.pdb
+C:\Users\Riley\Source\Repos\FiveNightsAtFreddys\obj\Debug\FNAF.csprojResolveAssemblyReference.cache
+C:\Users\Riley\Source\Repos\FiveNightsAtFreddys\obj\Debug\FNAF.Controls.CameraMap.resources
+C:\Users\Riley\Source\Repos\FiveNightsAtFreddys\obj\Debug\FNAF.LowerCameraButton.resources
+C:\Users\Riley\Source\Repos\FiveNightsAtFreddys\obj\Debug\FNAF.Forms.CameraForm.resources
+C:\Users\Riley\Source\Repos\FiveNightsAtFreddys\obj\Debug\FNAF.StartMenuForm.resources
+C:\Users\Riley\Source\Repos\FiveNightsAtFreddys\obj\Debug\FNAF.Properties.Resources.resources
+C:\Users\Riley\Source\Repos\FiveNightsAtFreddys\obj\Debug\FNAF.csproj.GenerateResource.Cache
+C:\Users\Riley\Source\Repos\FiveNightsAtFreddys\obj\Debug\FNAF.exe
+C:\Users\Riley\Source\Repos\FiveNightsAtFreddys\obj\Debug\FNAF.pdb
