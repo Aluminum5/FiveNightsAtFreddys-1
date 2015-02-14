@@ -10,3 +10,4 @@ C:\Users\Riley\Source\Repos\FiveNightsAtFreddys\obj\Debug\FNAF.Properties.Resour
 C:\Users\Riley\Source\Repos\FiveNightsAtFreddys\obj\Debug\FNAF.csproj.GenerateResource.Cache
 C:\Users\Riley\Source\Repos\FiveNightsAtFreddys\obj\Debug\FNAF.exe
 C:\Users\Riley\Source\Repos\FiveNightsAtFreddys\obj\Debug\FNAF.pdb
+E:\Source\FiveNightsAtFreddys\bin\Debug\FNAF.exe.config
