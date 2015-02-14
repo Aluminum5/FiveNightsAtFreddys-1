@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace FNAF.Engines
 {
     class FlashlightThread
     {
         private const ushort POWER_DECREMENT_PERCENT = 5;
-        private const ushort POWER_DECREMENT_FREQUENCY_TICKS = 10;
+        private const double TIMER_INTERVAL = 10000; // milliseconds
 
         private bool _on = false;
         private ushort _powerRemaining = 100;
-        private Nullable<DateTime> _lightOnTime = null;
-        private Nullable<DateTime> _lastLightOnCheck = null;
-        private TimeSpan _powerDecrementFrequency = new TimeSpan(POWER_DECREMENT_FREQUENCY_TICKS);
+        private Timer _timer = new Timer(TIMER_INTERVAL);
         private object _lock = new object();
 
         public ushort PowerRemaining
@@ -38,10 +37,44 @@ namespace FNAF.Engines
             {
                 return _on;
             }
+            set
+            {
+                //
+                // If the user is out of power change the value to read only.
+                //
+                if (_powerRemaining != 0)
+                {
+                    lock (_lock)
+                    {
+                        _on = value;
+                    }
+                }
+            }
         }
 
         public FlashlightThread()
         {
+            _timer.Elapsed += Timer_Elapsed;
+        }
+
+        /// <summary>
+        /// This event is triggered every time TIMER_INTERVAL milliseconds has elapsed.  
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void Timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            if (_powerRemaining > 0)
+            {
+                lock (_lock)
+                {
+                    //
+                    // If the timer has triggered this event the TIMER_INTERVAL seconds has 
+                    // elapsed and the power must be decremented.
+                    //
+                    _powerRemaining -= POWER_DECREMENT_PERCENT;
+                }
+            }
         }
 
         /// <summary>
@@ -49,17 +82,39 @@ namespace FNAF.Engines
         /// </summary>
         public void Start()
         {
-            long decrementFrequencyCount = 0;
-            bool wasLightOnLastTimeChecked = _on;
-
             //
             // Main flashlight loop. This does not exit until signaled by thread caller
             //
             while (true)
             {
                 //
+                // If the flashlight is on but the timer has not started, start the timer to track 
+                // how long the user has the flashlight on for.
+                //
+                if (_on == true && _timer.Enabled == false)
+                {
+                    lock (_lock)
+                    {
+                        _timer.Start();
+                    }
+                }
+
+                //
+                // If the flashligh is off but the timer is still running, stop the timer as it is
+                // no longer needed since the flashlight is off.
+                //
+                if (_on == false && _timer.Enabled == true)
+                {
+                    lock (_lock)
+                    {
+                        _timer.Stop();
+                    }
+                }
+
+                //
                 // first check if there is any power remaining in the falshlight. If not
-                // then turn the flashlight off and skip further processing.
+                // then turn the flashlight off and skip further processing. Also stop
+                // the timer as it is not needed unless the flashlight is on.
                 //
                 if (_powerRemaining == 0)
                 {
@@ -68,69 +123,6 @@ namespace FNAF.Engines
                         _on = false;
                     }
                     continue;
-                }
-
-                //
-                // If the flashlight is on process the power remaining
-                //
-                if (_on)
-                {
-                    //
-                    // Lock as we're going to be modifying variables visible to the user.
-                    //
-                    lock (_lock)
-                    {
-                        //
-                        // Update the time the light was turned on to now. This should always be null 
-                        // the first time the light is turned on.
-                        //
-                        if (_lightOnTime == null || _lastLightOnCheck == null)
-                        {
-                            _lightOnTime = DateTime.Now;
-                            _lastLightOnCheck = _lightOnTime;
-                        }
-
-                        //
-                        // Check to see if the last time the time was checked was greater than the 
-                        // decrement frequency. This is basically checking to see if the last time 
-                        // we checked whether we needed to decrease power was longer away in time 
-                        // than that time which we should decrease telling us to decrement the power.
-                        //
-                        if (DateTime.Now > _lastLightOnCheck.Value.Add(_powerDecrementFrequency))
-                        {
-                            //
-                            // This variable is used to determine how many decreases we should do. 
-                            // Since the loop doesn't sleep there shouldn't be more than a second 
-                            // that goes by each time but if the system is under heavy load then maybe. 
-                            // This ensures the power decreases at the correct interval syncing the 
-                            // decrement with the time.
-                            //
-                            decrementFrequencyCount = DateTime.Now.Subtract(
-                                _lastLightOnCheck.Value
-                            ).Ticks / POWER_DECREMENT_FREQUENCY_TICKS;
-
-                            //
-                            // This decreases the power remaining percentage by the decrement frequency
-                            // count. Resets the last time we checked if the light was on time. And 
-                            // resets te decrement frequency count as well.
-                            //
-                            _powerRemaining -= (ushort)(POWER_DECREMENT_PERCENT * decrementFrequencyCount);
-                            _lastLightOnCheck = DateTime.Now;
-                            decrementFrequencyCount = 0;
-                        }
-                    }
-                }
-                else
-                {
-                    lock (_lock)
-                    {
-                        //
-                        // These are used when the light is on and need to be reset 
-                        // when the light turns back on from an off state.
-                        //
-                        _lightOnTime = null;
-                        _lastLightOnCheck = null;
-                    }
                 }
             }
         }
