@@ -156,12 +156,19 @@ namespace FNAF.Engines
                 // then turn the flashlight off and skip further processing. Also stop
                 // the timer as it is not needed unless the flashlight is on.
                 //
-                if (_powerRemaining == 0)
+                if (_powerRemaining == 0 && _on == true)
                 {
                     lock (_lock)
                     {
                         _on = false;
 
+                        if (this.OutOfPower != null)
+                        {
+                            //
+                            // Notify the caller that the flashlight is out of power.
+                            //
+                            OutOfPower(this, new EventArgs());
+                        }
                     }
 
                     if (_timer.Enabled)

@@ -105,7 +105,7 @@ namespace FNAF.Forms
             {
                 _flashlight = ThreadingEngine.GetThread<Flashlight>();
                 _flashlight.ImageChanged += flashlight_ImageChanged;
-                _flashlight.OutOfPower += _flashlight_OutOfPower;
+                _flashlight.OutOfPower += flashlight_OutOfPower;
 
                 this.FlashlightPowerPictureBox = new PictureBox();
                 this.FlashlightPowerPictureBox.BackColor = System.Drawing.Color.Transparent;
@@ -121,13 +121,13 @@ namespace FNAF.Forms
             }
         }
 
-        void _flashlight_OutOfPower(object sender, EventArgs e)
+        protected void flashlight_OutOfPower(object sender, EventArgs e)
         {
             _flashlight.TurnOff();
             this.BackgroundPictureBox.Image = _formData.DefaultImage.Image;
         }
 
-        void flashlight_ImageChanged(object sender, EventArgs e)
+        protected void flashlight_ImageChanged(object sender, EventArgs e)
         {
             this.FlashlightPowerPictureBox.Image = _flashlight.Image;
             this.FlashlightPowerPictureBox.Tag = _flashlight.Image.Tag;
@@ -135,7 +135,7 @@ namespace FNAF.Forms
             return;
         }
 
-        void airVentPictureBox_Click(object sender, EventArgs e)
+        protected void airVentPictureBox_Click(object sender, EventArgs e)
         {
             PictureBox airVentPictureBox = (PictureBox)sender;
 
@@ -169,7 +169,7 @@ namespace FNAF.Forms
             base.OnClosing(e);
         }
 
-        private void CameraForm_KeyDown(object sender, KeyEventArgs e)
+        protected void CameraForm_KeyDown(object sender, KeyEventArgs e)
         {
             this.SuspendLayout();
             
@@ -178,13 +178,27 @@ namespace FNAF.Forms
                 case Keys.ControlKey:
                     if (_flashlight.On == false)
                     {
-                        this.BackgroundPictureBox.Image = _formData.DefaultFlashlightOnImage.Image;
-                        _flashlight.TurnOn();
+                        if (_formData.SupportsMask && !this.MaskPictureBox.Visible)
+                        {
+                            if (_flashlight.TurnOn() == FlashlightResult.Success)
+                            {
+                                this.BackgroundPictureBox.Image = _formData.DefaultFlashlightOnImage.Image;
+                            }
+                        }
+                        else
+                        {
+                            if (_flashlight.TurnOn() == FlashlightResult.Success)
+                            {
+                                this.BackgroundPictureBox.Image = _formData.DefaultFlashlightOnImage.Image;
+                            }
+                        }
                     }
                     else
                     {
-                        _flashlight.TurnOff();
-                        this.BackgroundPictureBox.Image = _formData.DefaultImage.Image;
+                        if (_flashlight.TurnOff() == FlashlightResult.Success)
+                        {
+                            this.BackgroundPictureBox.Image = _formData.DefaultImage.Image;
+                        }
                     }
 
                     break;
