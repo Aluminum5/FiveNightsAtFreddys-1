@@ -73,6 +73,7 @@
     <Compile Include="Controls\LowerCameraButton.Designer.cs">
       <DependentUpon>LowerCameraButton.cs</DependentUpon>
     </Compile>
+    <Compile Include="Engines\FlashlightThread.cs" />
     <Compile Include="Engines\SoundEngine.cs" />
     <Compile Include="Engines\ThreadingEngine.cs" />
     <Compile Include="Forms\CameraForm.cs">

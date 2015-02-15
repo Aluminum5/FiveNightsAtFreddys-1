@@ -10,14 +10,15 @@ using System.Windows.Forms;
 using FNAF.Common;
 using FNAF.Controls;
 using System.Media;
+using FNAF.Engines;
+using System.Threading;
 
 namespace FNAF.Forms
 {
     public partial class CameraForm : Form
     {
-        private int _flashLightUsedCount = 0;
         private FormData _formData;
-        private bool _flashLightOn = false;
+        private FlashlightThread _flashlightThread;
 
         public CameraForm(FormData formData)
         {
@@ -102,6 +103,9 @@ namespace FNAF.Forms
 
             if (formData.SupportsFlashlight)
             {
+                _flashlightThread = new FlashlightThread();
+                Thread thread = new Thread(new ThreadStart(_flashlightThread.Start));
+                thread.Start();
                 this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CameraForm_KeyDown);
             }
         }
@@ -147,29 +151,14 @@ namespace FNAF.Forms
             switch (e.KeyCode)
             {
                 case Keys.ControlKey:
-                    if (_flashLightOn == false)
+                    if (_flashlightThread.On == false)
                     {
-                        if (_flashLightUsedCount >= 3 && _formData.Characters.Count == 3)
-                        {
-                            this.BackgroundPictureBox.Image = _formData.Characters["Chica"].ScareImage.Image;
-                            Global.PlaySound(_formData.Characters["Chica"].ScareScream, true);
-                        }
-                        else if (_flashLightUsedCount == 2 && _formData.Characters.Count == 3)
-                        {
-                            this.BackgroundPictureBox.Image = _formData.Characters["Chica"].VisibleImage.Image;
-                        }
-                        else
-                        {
-                            this.BackgroundPictureBox.Image = _formData.DefaultFlashlightOnImage.Image;
-                        }
-
-                        _flashLightUsedCount++;
-                        _flashLightOn = true;
+                        this.BackgroundPictureBox.Image = _formData.DefaultFlashlightOnImage.Image;
+                        _flashlightThread.On = true;
                     }
                     else
                     {
-                        this.BackgroundPictureBox.Image = _formData.DefaultImage.Image;
-                        _flashLightOn = false;
+                        _flashlightThread.On = false;
                     }
 
                     break;
