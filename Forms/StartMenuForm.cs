@@ -1,4 +1,5 @@
 ﻿using FNAF.Common;
+using FNAF.Engines;
 using FNAF.Forms;
 using System;
 using System.Collections.Generic;
@@ -14,15 +15,27 @@ namespace FNAF
 {
     public partial class StartMenuForm : Form
     {
+        public Flashlight _flashlight;
+
         public StartMenuForm()
         {
             InitializeComponent();
 
+            _flashlight = new Flashlight();
             Global.PlaySound(global::FNAF.Properties.Resources.StartMenuThemeMusic, true);
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            ThreadingEngine.Dispose();
+            base.OnClosing(e);
         }
 
         private void NewGameImageButton_Click(object sender, EventArgs e)
         {
+            ThreadingEngine.AddThread(_flashlight);
+            ThreadingEngine.StartThreads();
+
             Global.User = new User()
             {
                 MaskImage = new ImageEx(
@@ -30,7 +43,8 @@ namespace FNAF
                     global::FNAF.Properties.Resources.FreddyMask
                 )
             };
-            WindowControls.ShowForm(new CameraForm(new FormData() 
+
+            CameraForm officeCameraForm = new CameraForm(new FormData() 
             {
                 AirVents = new AirVent[] 
                 {
@@ -86,14 +100,14 @@ namespace FNAF
                 ),
                 DefaultFlashlightOnImage = new ImageEx(
                     "OfficeNoCharactersFlashlight",
-                    global::FNAF.Properties.Resources.OfficeNoFlashlightNoCharacters
+                    global::FNAF.Properties.Resources.OfficeFlashlightNoCharacters
                 ),
                 ShowCameraMap = true,
                 SupportsFlashlight = true,
                 SupportsMask = true
-            }));
+            });
 
-            Global.StopSound();
+            WindowControls.ShowForm(officeCameraForm);
         }
 
         private void ContinueImageButton_Click(object sender, EventArgs e)
@@ -104,21 +118,19 @@ namespace FNAF
         private void ContinueImageButton_MouseEnter(object sender, EventArgs e)
         {
             this.ContinueImageButton.Image = global::FNAF.Properties.Resources.ContinueMouseOver;
+            this.ContinueImageButton.Location = new Point(this.ContinueImageButton.Location.X - 70, this.ContinueImageButton.Location.Y);
+
+            this.NewGameImageButton.Image = global::FNAF.Properties.Resources.NewGame;
+            this.NewGameImageButton.Location = new Point(this.NewGameImageButton.Location.X + 55, this.NewGameImageButton.Location.Y);
         }
 
         private void ContinueImageButton_MouseLeave(object sender, EventArgs e)
         {
             this.ContinueImageButton.Image = global::FNAF.Properties.Resources.Continue;
-        }
+            this.ContinueImageButton.Location = new Point(this.ContinueImageButton.Location.X + 70, this.ContinueImageButton.Location.Y);
 
-        private void NewGameImageButton_MouseEnter(object sender, EventArgs e)
-        {
             this.NewGameImageButton.Image = global::FNAF.Properties.Resources.NewGameMouseOver;
-        }
-
-        private void NewGameImageButton_MouseLeave(object sender, EventArgs e)
-        {
-            this.NewGameImageButton.Image = global::FNAF.Properties.Resources.NewGame;
+            this.NewGameImageButton.Location = new Point(this.NewGameImageButton.Location.X - 55, this.NewGameImageButton.Location.Y);
         }
     }
 }

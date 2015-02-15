@@ -8,15 +8,43 @@ using System.Threading.Tasks;
 
 namespace FNAF.Engines
 {
-    class SoundEngine
-    {
-        private SoundPlayer _soundPlayer;
-        private User _user;
+    public delegate void SoundPlayed(object sender, EventArgs e);
 
-        public SoundEngine(User user)
+    public class Sound
+    {
+        public Stream Stream;
+        public bool Loop;
+        public SoundPlayed SoundPlayed;
+
+        public Sound(Stream stream, bool loop = false)
         {
-            _user = user;
-            _soundPlayer = new SoundPlayer();
+            this.Stream = stream;
+            this.Loop = loop;
+        }
+    }
+    class SoundEngine : ThreadBase
+    {
+        private SoundPlayer _soundPlayer = new SoundPlayer();
+        private object _lock = new object();
+        private List<Sound> _sounds = new List<Sound>();
+
+        public Stream CurrentStream;
+
+        public SoundEngine() : base("SoundEngine")
+        {
+        }
+
+        protected override void Start(object param)
+        {
+            while (true)
+            {
+                foreach (Sound sound in _sounds)
+                {
+
+                    _soundPlayer.PlaySync();
+                    sound.SoundPlayed(this, new EventArgs());
+                }
+            }
         }
 
         public void PlaySound(Stream stream, bool loop = false)
