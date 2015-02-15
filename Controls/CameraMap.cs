@@ -94,36 +94,9 @@ namespace FNAF.Controls
                         global::FNAF.Properties.Resources.PartyRoom2FlashlightToyBonnie
                     ),
                     ScareImage = new ImageEx(
-                        "ToyBonnieScare",
+                        "ToyBonniescare",
                         global::FNAF.Properties.Resources.ToyBonnieScare
-                    ),  
-                    ScareScream = global::FNAF.Properties.Resources.ChicaScream
-                },
-                new Character()
-                {
-                    Name = "OldChica",
-                    VisibleImage = new ImageEx(
-                        "PartyRoom2FlashlightOldChica",
-                        global::FNAF.Properties.Resources.PartyRoom2FlashlightOldChica
-                    ),
-                    ScareImage = new ImageEx(
-                        "OldChicaScare",
-                        global::FNAF.Properties.Resources.OldChicaScare
-                    ),
-                    ScareScream = global::FNAF.Properties.Resources.ChicaScream
-                },
-                new Character()
-                {
-                    Name = "Mangle",
-                    VisibleImage = new ImageEx(
-                        "PartyRoom2FlashlightMangle",
-                        global::FNAF.Properties.Resources.PartyRoom2FlashlightMangle
-                    ),
-                    ScareImage = new ImageEx(
-                        "MangleScare",
-                        global::FNAF.Properties.Resources.MangleScare
-                    ),
-                    ScareScream = global::FNAF.Properties.Resources.ChicaScream  
+                    )   
                 }
             };
 
@@ -150,39 +123,8 @@ namespace FNAF.Controls
 
         private void Camera3Button_Click(object sender, EventArgs e)
         {
-            Character[] characters = new Character[] 
-            {
-                new Character()
-                {
-                    Name = "ToyBonnie", 
-                    VisibleImage = new ImageEx(
-                        "PartyRoom3FlashlightToyBonnie",
-                        global::FNAF.Properties.Resources.PartyRoom3FlashlightToyBonnie
-                    ),
-                    ScareImage = new ImageEx(
-                        "ToyBonnieScare",
-                        global::FNAF.Properties.Resources.ToyBonnieScare
-                    ),
-                    ScareScream = global::FNAF.Properties.Resources.ChicaScream
-                },
-                new Character()
-                {
-                    Name = "OldFreddy",
-                    VisibleImage = new ImageEx(
-                        "PartyRoom3FlashlightOldFreddy",
-                        global::FNAF.Properties.Resources.PartyRoom3FlashlightOldFreddy
-                        ),
-                        ScareImage = new ImageEx(
-                            "OldFreddyScare",
-                            global::FNAF.Properties.Resources.OldFreddyScare
-                        ),
-                        ScareScream = global::FNAF.Properties.Resources.ChicaScream
-                }
-            };
-
             CameraForm cameraForm = new CameraForm(new FormData()
             {
-                Characters = new CharacterCollection(characters.ToList()),
                 DefaultImage = new ImageEx(
                     "PartyRoom3NoFlashlightNoCharacters",
                     global::FNAF.Properties.Resources.PartyRoom3NoFlashlightNoCharacters
@@ -193,9 +135,9 @@ namespace FNAF.Controls
                 ),
                 Name = "Party Room 3",
                 ShowCameraMap = true,
-                SupportsFlashlight = true,
-                SupportsMask = false
-            });
+                SupportsFlashlight = true
+            }
+            );
             WindowControls.ShowForm(cameraForm, (Button)sender, true);
         }
 
