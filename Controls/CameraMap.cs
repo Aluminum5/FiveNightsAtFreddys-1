@@ -99,6 +99,7 @@ namespace FNAF.Controls
                     )   
                 }
             };
+               
 
             CameraForm cameraForm = new CameraForm(new FormData()
             {
