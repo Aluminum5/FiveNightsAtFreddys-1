@@ -107,6 +107,8 @@ namespace FNAF
                 SupportsMask = true
             });
 
+            Global.StopSound();
+
             WindowControls.ShowForm(officeCameraForm);
         }
 
