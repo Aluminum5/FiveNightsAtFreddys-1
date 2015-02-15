@@ -73,7 +73,7 @@
     <Compile Include="Controls\LowerCameraButton.Designer.cs">
       <DependentUpon>LowerCameraButton.cs</DependentUpon>
     </Compile>
-    <Compile Include="Engines\FlashlightThread.cs" />
+    <Compile Include="Engines\Flashlight.cs" />
     <Compile Include="Engines\SoundEngine.cs" />
     <Compile Include="Engines\ThreadingEngine.cs" />
     <Compile Include="Forms\CameraForm.cs">
@@ -277,6 +277,18 @@
     <Content Include="Resources\Images\Scares\ToyBonnieScare.gif" />
     <Content Include="Resources\Images\Scares\ToyChicaScare.gif" />
     <Content Include="Resources\Images\Scares\ToyFreddyScare.gif" />
+    <Content Include="Resources\Images\Shared\Power_0.png" />
+    <Content Include="Resources\Images\Shared\Power_5.gif" />
+    <Content Include="Resources\Images\Shared\Power_10.png" />
+    <Content Include="Resources\Images\Shared\Power_100.png" />
+    <Content Include="Resources\Images\Shared\Power_20.png" />
+    <Content Include="Resources\Images\Shared\Power_30.png" />
+    <Content Include="Resources\Images\Shared\Power_40.png" />
+    <Content Include="Resources\Images\Shared\Power_50.png" />
+    <Content Include="Resources\Images\Shared\Power_60.png" />
+    <Content Include="Resources\Images\Shared\Power_70.png" />
+    <Content Include="Resources\Images\Shared\Power_80.png" />
+    <Content Include="Resources\Images\Shared\Power_90.png" />
     <Content Include="Resources\Images\StartMenuItems\Continue.jpg" />
     <Content Include="Resources\Images\StartMenuItems\ContinueMouseOver.jpg" />
     <Content Include="Resources\Images\StartMenuItems\NewGame.jpg" />

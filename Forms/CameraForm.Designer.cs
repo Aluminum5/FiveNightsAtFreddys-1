@@ -34,7 +34,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(198, 288);
             this.KeyPreview = true;
             this.Name = "CameraForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -49,6 +48,7 @@
         private FNAF.Controls.CameraMap CameraMap;
         private System.Windows.Forms.PictureBox BackgroundPictureBox;
         private System.Windows.Forms.PictureBox MaskPictureBox;
+        private System.Windows.Forms.PictureBox FlashlightPowerPictureBox;
 
         #endregion
     }

@@ -550,4 +550,40 @@
   <data name="RightAirVentNoFlashlightNoCharacters" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\images\camera6\rightairventnoflashlightnocharacters.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Power_10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\shared\power_10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Power_100" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\shared\power_100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Power_20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\shared\power_20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Power_30" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\shared\power_30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Power_40" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\shared\power_40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Power_50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\shared\power_50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Power_60" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\shared\power_60.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Power_70" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\shared\power_70.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Power_80" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\shared\power_80.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Power_90" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\shared\power_90.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Power_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\shared\power_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Power_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\images\shared\power_5.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
