@@ -21,6 +21,7 @@ namespace FNAF.Controls
 
         private void Camera1Button_Click(object sender, EventArgs e)
         {
+            Global.PlaySound(global::FNAF.Properties.Resources.VariousFNAFSound, false);
             Character[] characterArray = new Character[] 
             {
                 new Character() 
@@ -84,6 +85,7 @@ namespace FNAF.Controls
 
         private void Camera2Button_Click(object sender, EventArgs e)
         {
+            Global.PlaySound(global::FNAF.Properties.Resources.VariousFNAFSound, false);
             Character[] characterArray = new Character[] 
             {
                 new Character() 
@@ -124,6 +126,7 @@ namespace FNAF.Controls
 
         private void Camera3Button_Click(object sender, EventArgs e)
         {
+            Global.PlaySound(global::FNAF.Properties.Resources.VariousFNAFSound, false);
             CameraForm cameraForm = new CameraForm(new FormData()
             {
                 DefaultImage = new ImageEx(
@@ -144,6 +147,7 @@ namespace FNAF.Controls
 
         private void Camera4Button_Click(object sender, EventArgs e)
         {
+            Global.PlaySound(global::FNAF.Properties.Resources.VariousFNAFSound, false);
             CameraForm cameraForm = new CameraForm(new FormData()
             {
                 DefaultImage = new ImageEx(
@@ -164,6 +168,7 @@ namespace FNAF.Controls
 
         private void Camera5Button_Click(object sender, EventArgs e)
         {
+            Global.PlaySound(global::FNAF.Properties.Resources.VariousFNAFSound, false);
             CameraForm cameraForm = new CameraForm(new FormData()
             {
                 DefaultImage = new ImageEx(
@@ -184,6 +189,7 @@ namespace FNAF.Controls
 
         private void Camera6Button_Click(object sender, EventArgs e)
         {
+            Global.PlaySound(global::FNAF.Properties.Resources.VariousFNAFSound, false);
             CameraForm cameraForm = new CameraForm(new FormData()
             {
                 DefaultImage = new ImageEx(
@@ -204,6 +210,7 @@ namespace FNAF.Controls
 
         private void Camera7Button_Click(object sender, EventArgs e)
         {
+            Global.PlaySound(global::FNAF.Properties.Resources.VariousFNAFSound, false);
             CameraForm cameraForm = new CameraForm(new FormData()
             {
                 DefaultImage = new ImageEx(
@@ -224,6 +231,7 @@ namespace FNAF.Controls
 
         private void Camera8Button_Click(object sender, EventArgs e)
         {
+            Global.PlaySound(global::FNAF.Properties.Resources.VariousFNAFSound, false);
             CameraForm cameraForm = new CameraForm(new FormData()
             {
                 DefaultImage = new ImageEx(
@@ -244,6 +252,7 @@ namespace FNAF.Controls
 
         private void Camera9Button_Click(object sender, EventArgs e)
         {
+            Global.PlaySound(global::FNAF.Properties.Resources.VariousFNAFSound, false);
             CameraForm cameraForm = new CameraForm(new FormData()
             {
                 DefaultImage = new ImageEx(
@@ -266,6 +275,7 @@ namespace FNAF.Controls
 
         private void Camera10Button_Click(object sender, EventArgs e)
         {
+            Global.PlaySound(global::FNAF.Properties.Resources.VariousFNAFSound, false);
             CameraForm cameraForm = new CameraForm(new FormData()
             {
                 DefaultImage = new ImageEx(
@@ -287,6 +297,7 @@ namespace FNAF.Controls
 
         private void Camera11Button_Click(object sender, EventArgs e)
         {
+            Global.PlaySound(global::FNAF.Properties.Resources.VariousFNAFSound, false);
             CameraForm cameraForm = new CameraForm(new FormData()
             {
                 DefaultImage = new ImageEx(
@@ -307,6 +318,7 @@ namespace FNAF.Controls
 
         private void Camera12Button_Click(object sender, EventArgs e)
         {
+            Global.PlaySound(global::FNAF.Properties.Resources.VariousFNAFSound, false);
             CameraForm cameraForm = new CameraForm(new FormData()
             {
                 DefaultImage = new ImageEx(
@@ -345,6 +357,7 @@ namespace FNAF.Controls
             });
 
             WindowControls.ShowForm(cameraForm, (Control)sender, true);
+            Global.PlaySound(global::FNAF.Properties.Resources.Night1PhoneCall, false);
         }
     }
 }
