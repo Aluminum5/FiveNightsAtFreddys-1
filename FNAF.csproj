@@ -294,6 +294,8 @@
     <Content Include="Resources\Images\StartMenuItems\NewGame.jpg" />
     <Content Include="Resources\Images\StartMenuItems\NewGameMouseOver.jpg" />
     <Content Include="Resources\Images\StartMenuItems\StartScreen.jpg" />
+    <None Include="Resources\VariousFNAFSound.wav" />
+    <None Include="Resources\Night1PhoneCall.wav" />
     <None Include="Resources\Images\StartMenuItems\MainMenuNoGlitch.png" />
     <None Include="Resources\Images\StartMenuItems\MainMenuFreddyGlitch.png" />
     <None Include="Resources\Images\StartMenuItems\MainMenuBonnieGlitch.png" />

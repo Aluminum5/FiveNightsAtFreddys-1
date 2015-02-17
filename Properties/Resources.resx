@@ -586,4 +586,10 @@
   <data name="Power_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\images\shared\power_5.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Night1PhoneCall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Night1PhoneCall.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="VariousFNAFSound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\VariousFNAFSound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

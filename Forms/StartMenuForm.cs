@@ -127,6 +127,7 @@ namespace FNAF
             // The new game is initialized now start the office camera to begin.
             //
             WindowControls.ShowForm(officeCameraForm);
+            Global.PlaySound(global::FNAF.Properties.Resources.Night1PhoneCall, false);
         }
 
         private void ContinueImageButton_Click(object sender, EventArgs e)

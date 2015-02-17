@@ -50,8 +50,8 @@ namespace FNAF.Engines
         /// <summary>
         /// Constants.
         /// </summary>
-        private const ushort POWER_DECREMENT_PERCENT = 5; // 5 power measurement decreased every TIMER_INTERVAL
-        private const double TIMER_INTERVAL = 1000; // 10 seconds
+        private const ushort POWER_DECREMENT_PERCENT = 3; // 5 power measurement decreased every TIMER_INTERVAL
+        private const double TIMER_INTERVAL = 10000; // 10 seconds
 
         /// <summary>
         /// Member variables. Used through out the class.
