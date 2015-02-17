@@ -1,4 +1,5 @@
-﻿using FNAF.Forms;
+﻿using FNAF.Engines;
+using FNAF.Forms;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -139,6 +140,7 @@ namespace FNAF.Common
         public bool SupportsMask;
         public bool ShowCameraMap;
         public List<AirVent> AirVents;
+        public Sound Sound;
 
         public FormData()
             :this("FormData", new CharacterCollection(), null, null)

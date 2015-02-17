@@ -9,13 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FNAF.Forms;
 using FNAF.Common;
+using FNAF.Engines;
 
 namespace FNAF.Controls
 {
     public partial class CameraMap : UserControl
     {
+        private SoundEngine _soundEngine;
+        private Sound _musicBoxSong;
+
         public CameraMap()
         {
+            _soundEngine = ThreadingEngine.GetThread<SoundEngine>();
+
             InitializeComponent();
         }
 
@@ -260,8 +266,7 @@ namespace FNAF.Controls
             }
             );
             WindowControls.ShowForm(cameraForm, (Button)sender, true);
-            Global.PlaySound(global::FNAF.Properties.Resources.MusicBoxSong, true);
-            
+            _musicBoxSong = _soundEngine.PlaySound(global::FNAF.Properties.Resources.MusicBoxSong, true);            
         }
 
         private void Camera10Button_Click(object sender, EventArgs e)
@@ -278,11 +283,11 @@ namespace FNAF.Controls
                 ),
                 Name = "Game Area",
                 ShowCameraMap = true,
-                SupportsFlashlight = true
+                SupportsFlashlight = true,
+                Sound = new Sound(global::FNAF.Properties.Resources.BBHi)
             }
             );
             WindowControls.ShowForm(cameraForm, (Button)sender, true);
-            Global.PlaySound(global::FNAF.Properties.Resources.BBHi, false);
         }
 
         private void Camera11Button_Click(object sender, EventArgs e)
@@ -319,11 +324,11 @@ namespace FNAF.Controls
                 ),
                 Name = "Show Stage",
                 ShowCameraMap = true,
-                SupportsFlashlight = true
+                SupportsFlashlight = true,
+                Sound = new Sound(global::FNAF.Properties.Resources.MangleStatic, true)
             }
             );
             WindowControls.ShowForm(cameraForm, (Button)sender, true);
-            Global.PlaySound(global::FNAF.Properties.Resources.MangleStatic, true);
         }
 
         private void YouButtonPanel_Click(object sender, EventArgs e)

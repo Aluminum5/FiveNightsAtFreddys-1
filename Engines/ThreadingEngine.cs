@@ -45,19 +45,6 @@ namespace FNAF.Engines
     {
         private static List<ThreadBase> _threads = new List<ThreadBase>();
 
-        public static void AddThread(ThreadBase thread)
-        {
-            foreach (ThreadBase existingThread in _threads)
-            {
-                if (existingThread.Name == thread.Name)
-                {
-                    throw new ArgumentException("Thread name already exists in the thread engine.");
-                }
-            }
-
-            _threads.Add(thread);
-        }
-
         public static void RemoveThread(ThreadBase thread)
         {
             foreach (ThreadBase existingThread in _threads)
@@ -86,14 +73,6 @@ namespace FNAF.Engines
             throw new InvalidOperationException("A thread of the type provided in the Generic typing was not found.");
         }
 
-        public static void StartThreads()
-        {
-            foreach (ThreadBase thread in _threads)
-            {
-                StartThread(thread);
-            }
-        }
-
         public static void StartThread(ThreadBase thread)
         {
             if (
@@ -101,6 +80,7 @@ namespace FNAF.Engines
                     thread.Thread.ThreadState == ThreadState.Stopped
                 )
             {
+                AddThread(thread);
                 thread.Start();
             }
         }
@@ -129,6 +109,19 @@ namespace FNAF.Engines
         {
             StopThreads();
             _threads.Clear();
+        }
+
+        private static void AddThread(ThreadBase thread)
+        {
+            foreach (ThreadBase existingThread in _threads)
+            {
+                if (existingThread.Name == thread.Name)
+                {
+                    throw new ArgumentException("Thread name already exists in the thread engine.");
+                }
+            }
+
+            _threads.Add(thread);
         }
     }
 }

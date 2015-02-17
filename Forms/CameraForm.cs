@@ -119,6 +119,11 @@ namespace FNAF.Forms
 
                 this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CameraForm_KeyDown);
             }
+
+            if (formData.Sound != null)
+            {
+                ThreadingEngine.GetThread<SoundEngine>().PlaySound(formData.Sound);
+            }
         }
 
         protected void flashlight_OutOfPower(object sender, EventArgs e)
@@ -164,7 +169,7 @@ namespace FNAF.Forms
 
         protected override void OnClosing(CancelEventArgs e)
         {
-            Global.StopSound();
+            ThreadingEngine.GetThread<SoundEngine>().StopSound(_formData.Sound);
 
             base.OnClosing(e);
         }

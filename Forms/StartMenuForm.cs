@@ -15,14 +15,28 @@ namespace FNAF
 {
     public partial class StartMenuForm : Form
     {
-        public Flashlight _flashlight;
+        private Flashlight _flashlight = new Flashlight();
+        private SoundEngine _soundEngine = new SoundEngine();
+        private Sound _startMenuThemeMusic = null;
+
 
         public StartMenuForm()
         {
             InitializeComponent();
 
-            _flashlight = new Flashlight();
-            Global.PlaySound(global::FNAF.Properties.Resources.StartMenuThemeMusic, true);
+            //
+            // Start the game threads that are global across the entire game. 
+            //
+            ThreadingEngine.StartThread(_soundEngine);
+            ThreadingEngine.StartThread(_flashlight);
+
+            //
+            // Start the theme mustic for the start menu
+            //
+            _startMenuThemeMusic = _soundEngine.PlaySound(
+                global::FNAF.Properties.Resources.StartMenuThemeMusic,  // theme mustic for the menu
+                true                                                    // play it in a loop
+            );
         }
 
         protected override void OnClosing(CancelEventArgs e)
@@ -33,9 +47,6 @@ namespace FNAF
 
         private void NewGameImageButton_Click(object sender, EventArgs e)
         {
-            ThreadingEngine.AddThread(_flashlight);
-            ThreadingEngine.StartThreads();
-
             Global.User = new User()
             {
                 MaskImage = new ImageEx(
@@ -107,14 +118,23 @@ namespace FNAF
                 SupportsMask = true
             });
 
-            Global.StopSound();
+            //
+            // Stop the theme music anytime a game starts.
+            //
+            _soundEngine.StopSound(_startMenuThemeMusic);
 
+            //
+            // The new game is initialized now start the office camera to begin.
+            //
             WindowControls.ShowForm(officeCameraForm);
         }
 
         private void ContinueImageButton_Click(object sender, EventArgs e)
         {
-            Global.StopSound();
+            //
+            // Stop the theme music anytime a game starts.
+            //
+            _soundEngine.StopSound(_startMenuThemeMusic);
         }
 
         private void ContinueImageButton_MouseEnter(object sender, EventArgs e)
