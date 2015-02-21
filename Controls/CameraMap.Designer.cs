@@ -57,7 +57,7 @@
             this.Camera8Button.TabIndex = 15;
             this.Camera8Button.Text = "Cam8";
             this.Camera8Button.UseVisualStyleBackColor = true;
-            this.Camera8Button.Click += new System.EventHandler(this.Camera8Button_Click);
+            this.Camera8Button.Click += new System.EventHandler(this.CameraButton_Click);
             // 
             // Camera7Button
             // 
@@ -68,7 +68,7 @@
             this.Camera7Button.TabIndex = 14;
             this.Camera7Button.Text = "Cam7";
             this.Camera7Button.UseVisualStyleBackColor = true;
-            this.Camera7Button.Click += new System.EventHandler(this.Camera7Button_Click);
+            this.Camera7Button.Click += new System.EventHandler(this.CameraButton_Click);
             // 
             // Camera6Button
             // 
@@ -79,7 +79,7 @@
             this.Camera6Button.TabIndex = 13;
             this.Camera6Button.Text = "Cam6";
             this.Camera6Button.UseVisualStyleBackColor = true;
-            this.Camera6Button.Click += new System.EventHandler(this.Camera6Button_Click);
+            this.Camera6Button.Click += new System.EventHandler(this.CameraButton_Click);
             // 
             // Camera5Button
             // 
@@ -90,7 +90,7 @@
             this.Camera5Button.TabIndex = 12;
             this.Camera5Button.Text = "Cam5";
             this.Camera5Button.UseVisualStyleBackColor = true;
-            this.Camera5Button.Click += new System.EventHandler(this.Camera5Button_Click);
+            this.Camera5Button.Click += new System.EventHandler(this.CameraButton_Click);
             // 
             // Camera4Button
             // 
@@ -101,7 +101,7 @@
             this.Camera4Button.TabIndex = 11;
             this.Camera4Button.Text = "Cam4";
             this.Camera4Button.UseVisualStyleBackColor = true;
-            this.Camera4Button.Click += new System.EventHandler(this.Camera4Button_Click);
+            this.Camera4Button.Click += new System.EventHandler(this.CameraButton_Click);
             // 
             // Camera3Button
             // 
@@ -112,7 +112,7 @@
             this.Camera3Button.TabIndex = 10;
             this.Camera3Button.Text = "Cam3";
             this.Camera3Button.UseVisualStyleBackColor = true;
-            this.Camera3Button.Click += new System.EventHandler(this.Camera3Button_Click);
+            this.Camera3Button.Click += new System.EventHandler(this.CameraButton_Click);
             // 
             // Camera2Button
             // 
@@ -123,7 +123,7 @@
             this.Camera2Button.TabIndex = 9;
             this.Camera2Button.Text = "Cam2";
             this.Camera2Button.UseVisualStyleBackColor = true;
-            this.Camera2Button.Click += new System.EventHandler(this.Camera2Button_Click);
+            this.Camera2Button.Click += new System.EventHandler(this.CameraButton_Click);
             // 
             // Camera1Button
             // 
@@ -134,7 +134,7 @@
             this.Camera1Button.TabIndex = 8;
             this.Camera1Button.Text = "Cam1";
             this.Camera1Button.UseVisualStyleBackColor = true;
-            this.Camera1Button.Click += new System.EventHandler(this.Camera1Button_Click);
+            this.Camera1Button.Click += new System.EventHandler(this.CameraButton_Click);
             // 
             // CameraMapPictureBox
             // 
@@ -165,7 +165,7 @@
             this.YouButtonPanel.Name = "YouButtonPanel";
             this.YouButtonPanel.Size = new System.Drawing.Size(49, 40);
             this.YouButtonPanel.TabIndex = 21;
-            this.YouButtonPanel.Click += new System.EventHandler(this.YouButtonPanel_Click);
+            this.YouButtonPanel.Click += new System.EventHandler(this.CameraButton_Click);
             // 
             // Camera9Button
             // 
@@ -176,7 +176,7 @@
             this.Camera9Button.TabIndex = 17;
             this.Camera9Button.Text = "Cam9";
             this.Camera9Button.UseVisualStyleBackColor = true;
-            this.Camera9Button.Click += new System.EventHandler(this.Camera9Button_Click);
+            this.Camera9Button.Click += new System.EventHandler(this.CameraButton_Click);
             // 
             // Camera10Button
             // 
@@ -187,7 +187,7 @@
             this.Camera10Button.TabIndex = 18;
             this.Camera10Button.Text = "Cam10";
             this.Camera10Button.UseVisualStyleBackColor = true;
-            this.Camera10Button.Click += new System.EventHandler(this.Camera10Button_Click);
+            this.Camera10Button.Click += new System.EventHandler(this.CameraButton_Click);
             // 
             // Camera11Button
             // 
@@ -198,7 +198,7 @@
             this.Camera11Button.TabIndex = 19;
             this.Camera11Button.Text = "Cam11";
             this.Camera11Button.UseVisualStyleBackColor = true;
-            this.Camera11Button.Click += new System.EventHandler(this.Camera11Button_Click);
+            this.Camera11Button.Click += new System.EventHandler(this.CameraButton_Click);
             // 
             // Camera12Button
             // 
@@ -209,7 +209,7 @@
             this.Camera12Button.TabIndex = 20;
             this.Camera12Button.Text = "Cam12";
             this.Camera12Button.UseVisualStyleBackColor = true;
-            this.Camera12Button.Click += new System.EventHandler(this.Camera12Button_Click);
+            this.Camera12Button.Click += new System.EventHandler(this.CameraButton_Click);
             // 
             // CameraMap
             // 

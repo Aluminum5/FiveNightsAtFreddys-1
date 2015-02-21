@@ -45,11 +45,6 @@
 
         }
 
-        private FNAF.Controls.CameraMap CameraMap;
-        private System.Windows.Forms.PictureBox BackgroundPictureBox;
-        private System.Windows.Forms.PictureBox MaskPictureBox;
-        private System.Windows.Forms.PictureBox FlashlightPowerPictureBox;
-
         #endregion
     }
 }

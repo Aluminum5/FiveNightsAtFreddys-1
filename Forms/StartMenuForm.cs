@@ -13,14 +13,14 @@ using System.Windows.Forms;
 
 namespace FNAF
 {
-    public partial class StartMenuForm : Form
+    public partial class StartMenuForm : FormBase
     {
         private Flashlight _flashlight = new Flashlight();
         private SoundEngine _soundEngine = new SoundEngine();
         private Sound _startMenuThemeMusic = null;
 
 
-        public StartMenuForm()
+        public StartMenuForm() : base("StartMenuForm")
         {
             InitializeComponent();
 
@@ -47,87 +47,32 @@ namespace FNAF
 
         private void NewGameImageButton_Click(object sender, EventArgs e)
         {
-            Global.User = new User()
-            {
-                MaskImage = new ImageEx(
-                    "FreddyMask",
-                    global::FNAF.Properties.Resources.FreddyMask
-                )
-            };
-
-            CameraForm officeCameraForm = new CameraForm(new FormData() 
-            {
-                AirVents = new AirVent[] 
-                {
-                    new AirVent("LeftAirVent") 
-                    {
-                        ButtonLightOff = new ImageEx(
-                        
-                            "LightButton_Off",
-                            global::FNAF.Properties.Resources.LightButton_Off
-                        ),
-                        ButtonLightOn = new ImageEx(
-                            "LightButton_On",
-                            global::FNAF.Properties.Resources.LightButton_On
-                        ),
-                        ButtonPoint = new Point(100, 430),
-                        ButtonSize = new Size(60, 55),
-                        ImageLightOff = new ImageEx(
-                            "OfficeNoCharactersNoFlashlight",
-                            global::FNAF.Properties.Resources.OfficeNoFlashlightNoCharacters
-                        ),
-                        ImageLightOn = new ImageEx(
-                            "OfficeLeftAirVentToyChica",
-                            global::FNAF.Properties.Resources.OfficeLeftAirVentToyChica
-                        )
-                    },
-                    new AirVent("RightAirVent") 
-                    {
-                        ButtonLightOff = new ImageEx(
-                        
-                            "LightButton_Off",
-                            global::FNAF.Properties.Resources.LightButton_Off
-                        ),
-                        ButtonLightOn = new ImageEx(
-                            "LightButton_On",
-                            global::FNAF.Properties.Resources.LightButton_On
-                        ),
-                        ButtonPoint = new Point(1360, 430),
-                        ButtonSize = new Size(60, 55),
-                        ImageLightOff = new ImageEx(
-                            "OfficeNoCharactersNoFlashlight",
-                            global::FNAF.Properties.Resources.OfficeNoFlashlightNoCharacters
-                        ),
-                        ImageLightOn = new ImageEx(
-                            "OfficeRightAirVentToyBonnie",
-                            global::FNAF.Properties.Resources.OfficeRightAirVentToyBonnie
-                        )
-                    }
-                }.ToList(),
-                Name = "Office",
-                DefaultImage = new ImageEx(
-                    "OfficeNoCharactersNoFlashlight",
-                    global::FNAF.Properties.Resources.OfficeNoFlashlightNoCharacters
-                ),
-                DefaultFlashlightOnImage = new ImageEx(
-                    "OfficeNoCharactersFlashlight",
-                    global::FNAF.Properties.Resources.OfficeFlashlightNoCharacters
-                ),
-                ShowCameraMap = true,
-                SupportsFlashlight = true,
-                SupportsMask = true
-            });
+            OfficeForm officeCameraForm = new OfficeForm();
 
             //
             // Stop the theme music anytime a game starts.
             //
             _soundEngine.StopSound(_startMenuThemeMusic);
 
+            User user = new User()
+            {
+                MaskImage = global::FNAF.Properties.Resources.FreddyMask,
+                CurrentForm = officeCameraForm,
+                LastForm = this
+            };
+
+            //
+            // Start the game engine. This is the engine that handles basic game logic such as 
+            // when to play certain sounds, randomly moves characters throughout the rooms and 
+            // decides when to scare if to scare at all. This will also setup the user/security 
+            // guard.
+            //
+            ThreadingEngine.StartThread(new GameEngine(user));
+
             //
             // The new game is initialized now start the office camera to begin.
             //
-            WindowControls.ShowForm(officeCameraForm);
-            Global.PlaySound(global::FNAF.Properties.Resources.Night1PhoneCall, false);
+            GameEngine.ShowForm(officeCameraForm);
         }
 
         private void ContinueImageButton_Click(object sender, EventArgs e)

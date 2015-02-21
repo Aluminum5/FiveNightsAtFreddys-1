@@ -97,7 +97,6 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox BackgroundPictureBox;
         private System.Windows.Forms.PictureBox NewGameImageButton;
         private System.Windows.Forms.PictureBox ContinueImageButton;
 

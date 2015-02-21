@@ -1,4 +1,5 @@
-﻿using FNAF.Engines;
+﻿using FNAF.Controls;
+using FNAF.Engines;
 using FNAF.Forms;
 using System;
 using System.Collections;
@@ -8,26 +9,17 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace FNAF.Common
 {
-    public class ImageEx
-    {
-        public string Name;
-        public Image Image;
-        public ImageEx(string name, Image image)
-        {
-            this.Name = name;
-            this.Image = image;
-        }
-    }
     public class AirVent
     {
         public string Name;
-        public ImageEx ImageLightOff;
-        public ImageEx ImageLightOn;
-        public ImageEx ButtonLightOn;
-        public ImageEx ButtonLightOff;
+        public Image ImageLightOff;
+        public Image ImageLightOn;
+        public Image ButtonLightOn;
+        public Image ButtonLightOff;
         public Point ButtonPoint;
         public Size ButtonSize;
 
@@ -36,134 +28,165 @@ namespace FNAF.Common
             this.Name = name;
         }
     }
-    public class CharacterCollection : CollectionBase
+    public abstract class FormBase : Form
     {
-        public Character this[int index]
+        private Flashlight _flashlight;
+
+        protected Flashlight Flashlight
         {
             get
             {
-                return ((Character)List[index]);
-            }
-            set
-            {
-                List[index] = value;
+                return _flashlight;
             }
         }
 
-        public Character this[string name]
-        {
-            get
-            {
-                foreach (Character character in base.InnerList)
-                {
-                    if (character.Name == name)
-                    {
-                        return character;
-                    }
-                }
+        public bool SupportsMask;
+        public bool SupportsFlashlight;
+        public bool SupportsMap;
+        public PictureBox BackgroundPictureBox;
+        public PictureBox FlashlightPowerPictureBox;
+        public PictureBox MaskPictureBox;
+        public CameraMap CameraMap;
+        public Image DefaultImage;
+        public Image DefaultFlashlightOnImage;
+        public Sound Sound;
+        public RoomType RoomType;
 
-                throw new MissingMemberException();
-            }
-        }
-
-        public CharacterCollection()
-            : this(new List<Character>())
-        { 
-        }
-        public CharacterCollection(IList list)
-            : base()
-        {
-            foreach (object o in list)
-            {
-                if (o is Character)
-                {
-                    this.Add((Character)o);
-                }
-            }
-        }
-
-        public int Add(Character value)
-        {
-            return (List.Add(value));
-        }
-
-        public int IndexOf(Character value)
-        {
-            return (List.IndexOf(value));
-        }
-
-        public void Insert(int index, Character value)
-        {
-            List.Insert(index, value);
-        }
-
-        public void Remove(Character value)
-        {
-            List.Remove(value);
-        }
-
-        public bool Contains(Character value)
-        {
-            // If value is not of type Character, this will return false. 
-            return (List.Contains(value));
-        }
-    }
-    public class Character
-    {
-        public ImageEx ScareImage;
-        public ImageEx VisibleImage;
-        public ImageEx OtherImage;
-        public Stream ScareScream;
-
-        public string Name;
-
-        public Character()
-            : this(string.Empty, null, null, null, null)
-        {
-        }
-        public Character(string name, ImageEx scareImage, ImageEx visibleImage, ImageEx otherImage, Stream scareScream)
+        public FormBase(string name, bool supportsMask = false, bool supportsFlashlight = true)
         {
             this.Name = name;
-            this.ScareImage = scareImage;
-            this.VisibleImage = visibleImage;
-            this.OtherImage = otherImage;
-            this.ScareScream = scareScream;
         }
-    }
-    public class FormData
-    {
-        public string Name;
-        public CharacterCollection Characters;
-        public ImageEx DefaultImage;
-        public ImageEx DefaultFlashlightOnImage;
-        public bool SupportsFlashlight;
-        public bool SupportsMask;
-        public bool ShowCameraMap;
-        public List<AirVent> AirVents;
-        public Sound Sound;
 
-        public FormData()
-            :this("FormData", new CharacterCollection(), null, null)
+        protected override void OnLoad(EventArgs e)
         {
+            //
+            // The PictureBox with the Image of the room.
+            //
+            this.BackgroundPictureBox = new PictureBox();
+            this.BackgroundPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.BackgroundPictureBox.Image = this.DefaultImage;
+            this.BackgroundPictureBox.Location = new System.Drawing.Point(0, 0);
+            this.BackgroundPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BackgroundPictureBox.Size = new Size(this.Size.Width - 5, this.Size.Height - 15);
+            this.Controls.Add(this.BackgroundPictureBox);
 
+            if (this.SupportsFlashlight)
+            {
+                _flashlight = ThreadingEngine.GetThread<Flashlight>();
+                _flashlight.OutOfPower += Flashlight_OutOfPower;
+                _flashlight.ImageChanged += Flashlight_ImageChanged;
+
+                this.FlashlightPowerPictureBox = new PictureBox();
+                this.FlashlightPowerPictureBox.BackColor = System.Drawing.Color.Transparent;
+                this.FlashlightPowerPictureBox.Image = _flashlight.Image;
+                this.FlashlightPowerPictureBox.Location = new System.Drawing.Point(20, 20);
+                this.FlashlightPowerPictureBox.Name = "FlashlightPictureBox";
+                this.FlashlightPowerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+                this.FlashlightPowerPictureBox.Size = new Size(_flashlight.Image.Width / 3, _flashlight.Image.Height / 3);
+                this.FlashlightPowerPictureBox.Tag = _flashlight.Image.Tag;
+                this.BackgroundPictureBox.Controls.Add(this.FlashlightPowerPictureBox);
+            }
+
+            if (this.SupportsMask)
+            {
+                //
+                // The PictureBox to overlay on the BackgroundPictureBox 
+                //
+                this.MaskPictureBox = new PictureBox();
+                this.MaskPictureBox.BackColor = System.Drawing.Color.Transparent;
+                this.MaskPictureBox.Image = ThreadingEngine.GetThread<GameEngine>().User.MaskImage;
+                this.MaskPictureBox.Location = new System.Drawing.Point(0, 0);
+                this.MaskPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+                this.MaskPictureBox.Size = new Size(this.Size.Width - 5, this.Size.Height - 15);
+                this.MaskPictureBox.Visible = false;
+
+                this.BackgroundPictureBox.Controls.Add(this.MaskPictureBox);
+            }
+
+            if (this.SupportsMap)
+            {
+                //
+                // The PictureBox to overlay on the BackgroundPictureBox 
+                //
+                this.CameraMap = new CameraMap();
+                this.CameraMap.BackColor = System.Drawing.Color.Transparent;
+                this.CameraMap.Location = new System.Drawing.Point(this.Size.Height - 200, this.Size.Width - 200);
+                this.CameraMap.Visible = true;
+
+                this.BackgroundPictureBox.Controls.Add(this.CameraMap);
+            }
+
+            this.KeyDown += new KeyEventHandler(Form_KeyDown);
+
+            base.OnLoad(e);
         }
-        public FormData(
-            string Name,
-            CharacterCollection characters,
-            ImageEx defaultImage, 
-            ImageEx defaultFlashlightOnImage,
-            bool supportsFlashlight = true, 
-            bool supportsMask = false,
-            bool showCameraMap = true
-            )
+
+        protected void Flashlight_OutOfPower(object sender, EventArgs e)
         {
-            this.Characters = characters;
-            this.DefaultImage = defaultImage;
-            this.DefaultFlashlightOnImage = defaultFlashlightOnImage;
-            this.SupportsFlashlight = supportsFlashlight;
-            this.SupportsMask = supportsMask;
-            this.ShowCameraMap = showCameraMap;
-            this.AirVents = new List<AirVent>();
+            _flashlight.TurnOff();
+            this.BackgroundPictureBox.Image = this.DefaultImage;
+        }
+
+        protected void Flashlight_ImageChanged(object sender, EventArgs e)
+        {
+            this.FlashlightPowerPictureBox.Image = _flashlight.Image;
+            this.FlashlightPowerPictureBox.Tag = _flashlight.Image.Tag;
+
+            return;
+        }
+        protected void Form_KeyDown(object sender, KeyEventArgs e)
+        {
+            this.SuspendLayout();
+
+            switch (e.KeyCode)
+            {
+                case Keys.ControlKey:
+                    if (_flashlight.On == false)
+                    {
+                        if (this.SupportsMask && !this.MaskPictureBox.Visible)
+                        {
+                            if (_flashlight.TurnOn() == FlashlightResult.Success)
+                            {
+                                this.BackgroundPictureBox.Image = this.DefaultFlashlightOnImage;
+                            }
+                        }
+                        else
+                        {
+                            if (_flashlight.TurnOn() == FlashlightResult.Success)
+                            {
+                                this.BackgroundPictureBox.Image = this.DefaultFlashlightOnImage;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (_flashlight.TurnOff() == FlashlightResult.Success)
+                        {
+                            this.BackgroundPictureBox.Image = this.DefaultImage;
+                        }
+                    }
+
+                    break;
+                case Keys.M:
+                    if (this.SupportsMask == true)
+                    {
+                        _flashlight.TurnOff();
+                        this.BackgroundPictureBox.Image = this.DefaultImage;
+                        this.MaskPictureBox.Visible = !this.MaskPictureBox.Visible;
+                    }
+
+                    break;
+
+                default:
+                    break;
+            }
+
+            this.Update();
+            this.Refresh();
+
+            this.ResumeLayout(true);
+
+            return;
         }
     }
 }

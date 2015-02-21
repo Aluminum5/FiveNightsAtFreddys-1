@@ -59,8 +59,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\FormData.cs" />
-    <Compile Include="Common\Global.cs" />
+    <Compile Include="Common\FormData.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Controls\CameraMap.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -74,6 +75,7 @@
       <DependentUpon>LowerCameraButton.cs</DependentUpon>
     </Compile>
     <Compile Include="Engines\Flashlight.cs" />
+    <Compile Include="Engines\GameEngine.cs" />
     <Compile Include="Engines\SoundEngine.cs" />
     <Compile Include="Engines\ThreadingEngine.cs" />
     <Compile Include="Forms\CameraForm.cs">
@@ -81,6 +83,12 @@
     </Compile>
     <Compile Include="Forms\CameraForm.Designer.cs">
       <DependentUpon>CameraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OfficeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OfficeForm.Designer.cs">
+      <DependentUpon>OfficeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\StartMenuForm.cs">
       <SubType>Form</SubType>
@@ -90,7 +98,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Common\WindowControls.cs" />
     <EmbeddedResource Include="Controls\CameraMap.resx">
       <DependentUpon>CameraMap.cs</DependentUpon>
     </EmbeddedResource>
