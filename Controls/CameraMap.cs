@@ -31,9 +31,9 @@ namespace FNAF.Controls
 
             CharacterCollection characters = GetCharacters(button);
 
-            CameraForm cameraForm = GetCameraForm(button);
+            FormBase form = GetForm(button);
 
-            GameEngine.ShowForm(cameraForm, this, true);
+            GameEngine.ShowForm(form, this, true);
 
         }
 
@@ -92,7 +92,7 @@ namespace FNAF.Controls
             return new CharacterCollection();
         }
 
-        private CameraForm GetCameraForm(Button button)
+        private FormBase GetForm(Button button)
         {
             switch (button.Name)
             {
@@ -140,8 +140,7 @@ namespace FNAF.Controls
                     break;
 
                 case "YouButton":
-
-                    break;
+                    return new OfficeForm();
             }
 
             return new CameraForm();
