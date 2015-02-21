@@ -26,6 +26,7 @@ namespace FNAF.Controls
 
         private void CameraButton_Click(object sender, EventArgs e)
         {
+            _soundEngine.PlaySound(global::FNAF.Properties.Resources.VariousFNAFSound);
             Button button = (Button)sender;
 
             CharacterCollection characters = GetCharacters(button);
