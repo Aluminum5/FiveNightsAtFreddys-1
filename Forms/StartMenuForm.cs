@@ -60,24 +60,6 @@ namespace FNAF
         }
 
         /// <summary>
-        /// Since this is the main form and doesn't close until the game is set to close the only 
-        /// work needed here is to cleanup any outstanding thread work.
-        /// </summary>
-        /// <param name="e">Not used, passed down to the base class' OnClosing event handler.</param>
-        protected override void OnClosing(CancelEventArgs e)
-        {
-            //
-            // Must cleanup the threads here as the application is shutting down.
-            //
-            ThreadingEngine.Dispose();
-
-            //
-            // Threads are cleaned up close the application.
-            //
-            base.OnClosing(e);
-        }
-
-        /// <summary>
         /// Occurs when the user clicks the new game button. When a new game is created the office 
         /// camera is shown and a user instance is created. This is also a good time to setup the 
         /// Game logic engine which handles the characters and user. The flashlight is also 
@@ -117,7 +99,7 @@ namespace FNAF
             //
             // The new game is initialized now start the office camera to begin.
             //
-            GameEngine.ShowForm(officeCameraForm);
+            GameEngine.ShowForm(officeCameraForm, this);
         }
 
         /// <summary>

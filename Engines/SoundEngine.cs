@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Packaging;
 using System.Linq;
 using System.Media;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Media;
+
 
 namespace FNAF.Engines
 {
@@ -40,33 +43,34 @@ namespace FNAF.Engines
     {
         SoundPlayer _soundPlayer = new SoundPlayer();
         private object _lock = new object();
-        private List<Sound> _sounds = new List<Sound>();
+        private List<Sound> _sounds;
         private Sound _soundPlaying;
         private Sound _soundToResume;
-        private List<Sound> _soundsToStop = new List<Sound>();
+        private List<Sound> _soundsToStop;
+        protected CancellationTokenSource _cancellationTokenSource;
 
         public SoundEngine() : base("SoundEngine")
         {
         }
 
-        protected override void Start(object param)
+        protected override void ThreadStart()
         {
-            while (true)
+            lock (_lock)
             {
-                Sound sound = null;
-                Sound soundToStop = null;
+                _sounds = new List<Sound>();
+                _soundPlaying = null;
+                _soundToResume = null;
+                _soundsToStop = new List<Sound>();
+                _cancellationTokenSource = new CancellationTokenSource();
+            }
 
-                //
-                // Check if there are any sounds in the queue to play
-                //
-                if (_sounds.Count > 0)
-                {
-                    lock (_lock)
-                    {
-                        sound = _sounds[0];
-                    }
-                }
+             
 
+            //
+            // Threads infinite loop responding to sounds added and removed/started and stopped.
+            //
+            while (!_cancellationTokenSource.IsCancellationRequested)
+            {
                 //
                 // Check if there are any sounds in the queue to stop
                 //
@@ -74,190 +78,70 @@ namespace FNAF.Engines
                 {
                     lock (_lock)
                     {
-                        soundToStop = _soundsToStop[0];
-                    }
-
-                    //
-                    // It's possible to add a null sound to the list so if it is null then remove it and continue;
-                    //
-                    if (soundToStop == null)
-                    {
-                        lock (_lock)
-                        {
-                            _soundsToStop.RemoveAt(0);
-                        }
-                    }
-                }
-
-                //
-                // If there are no sounds to play or to stop there is no work to do so continue.
-                //
-                if (sound == null && soundToStop == null)
-                {
-                    continue;
-                }
-
-                //
-                // If there is a sound to stop, stop the player immediately, set the currently 
-                // playing sound to null and remove the sound from the list of sounds to stop. 
-                // Then continue the loop to check again. 
-                //
-                if (soundToStop != null && _soundPlaying.Guid == soundToStop.Guid)
-                {
-                    lock (_lock)
-                    {
-                        _soundPlayer.Stop();
-                        _soundPlaying = null;
-                        _soundsToStop.Remove(soundToStop);
-                    }
-
-                    continue;
-                }
-                else if (soundToStop != null)
-                {
-                    bool removeSound = false;
-
-                    lock (_lock)
-                    {
                         //
-                        // Check to see if the soundToStop is in the queue if it is remove it.
+                        // Stop any sounds in the queue to stop. Always stop the sounds before the new 
+                        // sounds are played. This routine checks if there are sounds in the queue to 
+                        // stop and if not returns.
                         //
-                        foreach (Sound soundInQueue in _sounds)
-                        {
-                            //
-                            // If the sound is in the queue flag it for removal and break the loop.
-                            //
-                            if (soundInQueue == soundToStop)
-                            {
-                                removeSound = true;
-                                break;
-                            }
-                        }
-                    }
-
-                    //
-                    // If the sound was found in the queue remove it now.
-                    //
-                    if (removeSound)
-                    {
-                        lock (_lock)
-                        {
-                            _sounds.Remove(soundToStop);
-                        }
-                    }
-
-                    lock (_lock)
-                    {
-                        //
-                        // The sound is not playing or queued to play any longer so remove it from 
-                        // the list of songs to stop.
-                        //
-                        _soundsToStop.Remove(soundToStop);
+                        QueueSoundStop();
                     }
                 }
 
                 //
-                // A sound was added to the queue process currently playing sound and then play 
-                // the newly added sound.
+                // Check if there are any sounds in the queue to stop
                 //
-
-                //
-                // If there is already a sound playing check to see if it is looping
-                //
-                if (_soundPlaying != null)
-                {
-                    //
-                    // If it is looping the sound needs to be stopped as it's been interrupted and 
-                    // a new sound is needed to be played.
-                    //
-                    if (_soundPlaying.Loop && _soundPlaying.IsLooping)
-                    {
-                        lock (_lock)
-                        {
-                            //
-                            // Set the sound to resume after this new sound has completed.
-                            //
-                            _soundToResume = _soundPlaying;
-                            _soundToResume.IsLooping = false;
-
-                            //
-                            // Reset the sound that is playing as it won't be playing anymore and 
-                            // stop it from playing.
-                            //
-                            _soundPlaying = null;
-                            _soundPlayer.Stop();
-                        }
-                    } // _soundPlaying.Loop && _soundPlaying.IsLooping
-                } // _soundPlaying != null)
-
-                lock (_lock)
-                {
-                    //
-                    // Load the stream into the player of the new sound.
-                    //
-                    _soundPlayer.Stream = sound.Stream;
-                    _soundPlayer.LoadAsync();
-                }
-
-                //
-                // Check to see if the sound is a loop.
-                // Note if the sound is a loop and the user puts another sound in the queue that 
-                // is a loop the highest order sound will win and the old sound will be lost.
-                //
-                if (sound.Loop)
+                if (_sounds.Count > 0)
                 {
                     lock (_lock)
                     {
                         //
-                        // The sound is supposed to loop so play it looping set the current sound 
-                        // playing to this song and flag it as looping.
+                        // play any sounds in the queue to play. This routine checks if there are 
+                        // sounds in the queue to play and if not returns.
                         //
-                        _soundPlayer.PlayLooping();
-                        _soundPlaying = sound;
-                        _soundPlaying.IsLooping = true;
-                    }
-                }
-                else
-                {
-                    lock (_lock)
-                    {
-                        //
-                        // The sound is just to play to completion so play it and wait
-                        //
-                        _soundPlayer.PlaySync();
-                    }
-
-                    //
-                    // Check to see if there is a sound to resume playing since this sound played 
-                    // to the end.
-                    //
-                    if (_soundToResume != null)
-                    {
-                        lock (_lock)
-                        {
-                            //
-                            // There was a sound in the queue to resume so load the sound set the 
-                            // _soundPlaying to this sound, flag it as looping, and remove the sound 
-                            // from needing to be resumed.
-                            //
-                            _soundPlayer.Stream = _soundToResume.Stream;
-                            _soundPlayer.LoadAsync();
-                            _soundPlaying = _soundToResume;
-                            _soundPlaying.IsLooping = true;
-                            _soundToResume = null;
-                        }
+                        QueueSoundPlay();
                     }
                 }
 
-                lock (_lock)
-                {
-                    //
-                    // Finally remove the sound from the queue so that the next sound can be played or 
-                    // the looping sound can continue;
-                    //
-                    _sounds.Remove(sound);
-                }
+                Thread.Sleep(300);
             }
+
+            lock (_lock)
+            {
+                //
+                // Stop all the sounds 
+                //
+                _soundPlayer.Stop();
+
+                //
+                // Sound has been stopped reset the tracking variable
+                //
+                _soundPlaying = null;
+
+                //
+                // Clear the Sounds that were in the queue to play.
+                //
+                _sounds.Clear();
+
+                //
+                // Clear the list of sounds that were in the queue to stop.
+                //
+                _soundsToStop.Clear();
+
+                //
+                // Reset the sound that was set to resume after the current playing sound 
+                // was complete
+                //
+                _soundToResume = null;
+            }
+        }
+        protected override void ThreadStop()
+        {
+            if (!_cancellationTokenSource.IsCancellationRequested)
+            {
+                _cancellationTokenSource.Cancel();
+            }
+
+            return;
         }
 
         public Sound PlaySound(Stream stream, bool loop = false)
@@ -275,15 +159,21 @@ namespace FNAF.Engines
                 case SoundPriority.Immediate:
                     Sound[] unprioritizedSounds = new Sound[_sounds.Count + 1];
 
-                    _sounds.CopyTo(unprioritizedSounds);
-                    _sounds.Clear();
-                    _sounds.Add(sound);
-                    _sounds.AddRange(unprioritizedSounds.ToList());
+                    lock (_lock)
+                    {
+                        _sounds.CopyTo(unprioritizedSounds);
+                        _sounds.Clear();
+                        _sounds.Add(sound);
+                        _sounds.AddRange(unprioritizedSounds.ToList());
+                    }
                     break;
 
                 case SoundPriority.Latent:
                 case SoundPriority.Normal:
-                    _sounds.Add(sound);
+                    lock (_lock)
+                    {
+                        _sounds.Add(sound);
+                    }
                     break;
 
                 default:
@@ -298,7 +188,220 @@ namespace FNAF.Engines
         }
         public void StopSound(Sound soundToStop)
         {
-            _soundsToStop.Add(soundToStop);
+            lock (_lock)
+            {
+                _soundsToStop.Add(soundToStop);
+            }
+        }
+
+        private void QueueSoundStop()
+        {
+            Sound soundToStop = null;
+
+            //
+            // Check if there are any sounds in the queue to stop
+            //
+            if (_soundsToStop.Count <= 0)
+            {
+                return;
+            }
+
+            //
+            // Grab the first indexed song always as when the song is stopped the queue is updated 
+            // and the next song becomes the first.
+            //
+            soundToStop = _soundsToStop[0];
+
+            //
+            // It's possible to add a null sound to the list so if it is null then remove it and 
+            // continue;
+            //
+            // It's also possible that the caller thinks they've added a sound to the queue but 
+            // there is no sound. if that is the case just remove the sound letting them think
+            // they started and stopped it.
+            //
+            if (soundToStop == null || _soundPlaying == null)
+            {
+                _soundsToStop.RemoveAt(0);
+                return;
+            }
+
+            //
+            // If there is a sound to stop, stop the player immediately, set the currently 
+            // playing sound to null and remove the sound from the list of sounds to stop. 
+            // Then continue the loop to check again. 
+            //
+            if (_soundPlaying.Guid == soundToStop.Guid)
+            {
+                _soundPlayer.Stop();
+                _soundPlaying = null;
+                _soundsToStop.Remove(soundToStop);
+            }
+            else
+            {
+                bool removeSound = false;
+
+                //
+                // Check to see if the soundToStop is in the queue if it is remove it.
+                //
+                foreach (Sound soundInQueue in _sounds)
+                {
+                    //
+                    // If the sound is in the queue flag it for removal and break the loop.
+                    //
+                    if (soundInQueue == soundToStop)
+                    {
+                        removeSound = true;
+                        break;
+                    }
+                }
+
+                //
+                // If the sound was found in the queue remove it now.
+                //
+                if (removeSound)
+                {
+                    _sounds.Remove(soundToStop);
+                }
+
+                //
+                // The sound is not playing or queued to play any longer so remove it from 
+                // the list of songs to stop.
+                //
+                _soundsToStop.Remove(soundToStop);
+            }
+
+            return;
+        }
+        private void QueueSoundPlay()
+        {
+            Sound sound = null;
+
+            //
+            // Check if there are any sounds in the queue to play
+            //
+            if (_sounds.Count <= 0)
+            {
+                return;
+            }
+
+            //
+            // Get the first indexed sound as after each play the sound is removed form the queue.
+            //
+            sound = _sounds[0];
+
+            //
+            // It's possible to add a null sound to the list so if it is null then remove it and 
+            // continue;
+            //
+            if (sound == null)
+            {
+                _soundsToStop.RemoveAt(0);
+                return;
+            }
+
+            //
+            // A sound was added to the queue process currently playing sound and then play 
+            // the newly added sound.
+            //
+
+            //
+            // If there is already a sound playing check to see if it is looping
+            //
+            if (_soundPlaying != null)
+            {
+                //
+                // If it is looping the sound needs to be stopped as it's been interrupted and 
+                // a new sound is needed to be played.
+                //
+                if (_soundPlaying.Loop && _soundPlaying.IsLooping)
+                {
+                    //
+                    // Set the sound to resume after this new sound has completed.
+                    //
+                    _soundToResume = _soundPlaying;
+                    _soundToResume.IsLooping = false;
+
+                    //
+                    // Reset the sound that is playing as it won't be playing anymore and 
+                    // stop it from playing.
+                    //
+                    _soundPlaying = null;
+                    _soundPlayer.Stop();
+                } // _soundPlaying.Loop && _soundPlaying.IsLooping
+            } // _soundPlaying != null)
+
+            //
+            // Load the stream into the player regardless of whether it is a looping sound or 
+            // single play.
+            //
+            _soundPlayer.Stream = sound.Stream;
+            _soundPlayer.LoadAsync();
+
+            //
+            // If the sound to play is not a looping sound 
+            //
+            if (sound.Loop == false)
+            {
+                if (sound.PlayToEnd)
+                {
+                    _soundPlayer.Play();
+                }
+                //
+                // The sound is just to play to completion so play it and wait
+                //
+                _soundPlayer.PlaySync();
+
+                //
+                // Check to see if there is a sound to resume playing since this sound played 
+                // to the end.
+                //
+                if (_soundToResume != null)
+                {
+                    //
+                    // There was a sound in the queue to resume so load the sound set the 
+                    // _soundPlaying to this sound, flag it as looping, and remove the sound 
+                    // from needing to be resumed.
+                    //
+                    _soundPlayer.Stream = _soundToResume.Stream;
+                    _soundPlayer.LoadAsync();
+                    _soundPlaying = _soundToResume;
+                    _soundPlaying.IsLooping = true;
+                    _soundToResume = null;
+                }
+            }
+            else
+            {
+                //
+                // Note if the sound is a loop and the user puts another sound in the queue that 
+                // is a loop the highest order sound will win and the old sound will be lost.
+                //
+                QueueSoundPlayLoop(sound);
+            }
+
+            //
+            // Finally remove the sound from the queue so that the next sound can be played or 
+            // the looping sound can continue;
+            //
+            _sounds.Remove(sound);
+
+            return;
+        }
+        private void QueueSoundPlayLoop(Sound sound)
+        {
+            //
+            // The sound is supposed to loop so play it looping set the current sound 
+            // playing to this song and flag it as looping.
+            //
+            _soundPlayer.PlayLooping();
+            _soundPlaying = sound;
+            _soundPlaying.IsLooping = true;
+
+            return;
+        }
+        private Uri UriFromStream(Stream stream)
+        {
+            MediaPlayer mp = new MediaPlayer();
         }
     }
 }

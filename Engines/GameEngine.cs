@@ -6,7 +6,9 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
@@ -20,7 +22,14 @@ namespace FNAF.Engines
         PartyRoom3,
         PartyRoom4,
         Office,
-        MainHall
+        MainHall,
+        ShowStage,
+        PartsService,
+        GameArea,
+        PrizeCorner,
+        KidsCove,
+        LeftAirVent,
+        RightAirVent
     }
     public enum ImageType
     {
@@ -28,7 +37,8 @@ namespace FNAF.Engines
         NoCharacterNoFlashlight,
         CharacterVisible,
         FlashlightCharacterVisible,
-        CharacterScare
+        CharacterScare,
+        AirVentLightCharacterVisible
     }
     public class RoomImage
     {
@@ -201,7 +211,7 @@ namespace FNAF.Engines
     public abstract class GameEvent
     {
         public bool Complete;
-        public int SignalTime;
+        public TimeSpan SignalTime;
 
         public GameEvent()
         {
@@ -239,7 +249,7 @@ namespace FNAF.Engines
         private static GameEvent[] _gameEventArray = new GameEvent[] {
             new SoundEvent() {
                 Sound = new Sound(global::FNAF.Properties.Resources.Night1PhoneCall, false, true),
-                SignalTime = 0
+                SignalTime = new TimeSpan(0)
             }
         };
         private static CharacterCollection _characters = new CharacterCollection((new Character[] {
@@ -293,7 +303,8 @@ namespace FNAF.Engines
             {
                 Name = "ToyBonnie",
                 ScareScream = global::FNAF.Properties.Resources.BonnieScream,
-                RoomImages = new RoomImageCollection((new RoomImage[] {
+                RoomImages = new RoomImageCollection((new RoomImage[] 
+                {
                     new RoomImage() 
                     { 
                         Image = global::FNAF.Properties.Resources.OfficeRightAirVentToyBonnie, 
@@ -337,6 +348,94 @@ namespace FNAF.Engines
                         RoomType = RoomType.Office 
                     }
                 }).ToList())
+            },
+            #endregion
+            #region Mangle
+            new Character()
+            {
+                Name = "Mangle",
+                ScareScream = global::FNAF.Properties.Resources.ChicaScream,
+                RoomImages = new RoomImageCollection((new RoomImage[] 
+                {
+                    new RoomImage()
+                    {
+                        Image = global::FNAF.Properties.Resources.GameAreaFlashlightBBAndMangle,
+                        ImageType = ImageType.FlashlightCharacterVisible,
+                        RoomType = RoomType.GameArea
+                    },
+                    new RoomImage()
+                    {
+                        Image = global::FNAF.Properties.Resources.KidsCoveFlashlightMangle,
+                        ImageType = ImageType.FlashlightCharacterVisible,
+                        RoomType = RoomType.KidsCove
+                    },
+                    new RoomImage()
+                    {
+                        Image = global::FNAF.Properties.Resources.KidsCoveNoFlashlightMangle,
+                        ImageType = ImageType.CharacterVisible,
+                        RoomType = RoomType.KidsCove
+                    },
+                    new RoomImage()
+                    {
+                        Image = global::FNAF.Properties.Resources.MainHallFlashlightMangle,
+                        ImageType = ImageType.FlashlightCharacterVisible,
+                        RoomType = RoomType.MainHall
+                    },
+                    new RoomImage()
+                    {
+                        Image = global::FNAF.Properties.Resources.MangleScare,
+                        ImageType = ImageType.CharacterScare,
+                        RoomType = RoomType.KidsCove
+                    },
+                    new RoomImage()
+                    {
+                        Image = global::FNAF.Properties.Resources.OfficeFlashlightMangleAndFoxyHall,
+                        ImageType = ImageType.FlashlightCharacterVisible,
+                        RoomType = RoomType.Office
+                    },
+                    new RoomImage()
+                    {
+                        Image = global::FNAF.Properties.Resources.OfficeFlashlightMangleHall,
+                        ImageType = ImageType.FlashlightCharacterVisible,
+                        RoomType = RoomType.Office
+                    },
+                    new RoomImage()
+                    {
+                        Image = global::FNAF.Properties.Resources.OfficeMangle,
+                        ImageType = ImageType.CharacterVisible,
+                        RoomType = RoomType.Office
+                    },
+                    new RoomImage()
+                    {
+                        Image = global::FNAF.Properties.Resources.OfficeRightAirVentMangle,
+                        ImageType = ImageType.AirVentLightCharacterVisible,
+                        RoomType = RoomType.Office
+                    },
+                    new RoomImage()
+                    {
+                        Image = global::FNAF.Properties.Resources.PartyRoom1FlashlightMangle,
+                        ImageType = ImageType.FlashlightCharacterVisible,
+                        RoomType = RoomType.PartyRoom1
+                    },
+                    new RoomImage()
+                    {
+                        Image = global::FNAF.Properties.Resources.PartyRoom2FlashlightMangle,
+                        ImageType = ImageType.FlashlightCharacterVisible,
+                        RoomType = RoomType.PartyRoom2
+                    },
+                    new RoomImage()
+                    {
+                        Image = global::FNAF.Properties.Resources.PrizeCornerFlashlightMangle,
+                        ImageType = ImageType.FlashlightCharacterVisible,
+                        RoomType = RoomType.PrizeCorner
+                    },
+                    new RoomImage()
+                    {
+                        Image = global::FNAF.Properties.Resources.RightAirVentFlashlightMangle,
+                        ImageType = ImageType.FlashlightCharacterVisible,
+                        RoomType = RoomType.RightAirVent
+                    },
+                }).ToList())
             }
             #endregion
         }).ToList());
@@ -379,39 +478,50 @@ namespace FNAF.Engines
             new CameraForm()
             {
                 RoomType = RoomType.MainHall,
-                DefaultImage = global::FNAF.Properties.Resources.PartyRoom2NoFlashlightNoCharacters,
-                DefaultFlashlightOnImage = global::FNAF.Properties.Resources.PartyRoom2FlashlightNoCharacters,
+                DefaultImage = global::FNAF.Properties.Resources.MainHallNoFlashlightNoCharacters,
+                DefaultFlashlightOnImage = global::FNAF.Properties.Resources.MainHallFlashlightNoCharacters,
                 SupportsMask = false,
                 SupportsFlashlight = true
             }
             #endregion
         };
 
-        private System.Timers.Timer _gameTimer = new System.Timers.Timer();
+        private DateTime _startTime;
+        private System.Timers.Timer _gameTimer;
+        private CancellationTokenSource _cancellationTokenSource;
 
         public User User;
         public ElapsedEventHandler GameTimeElapsed;
 
         public GameEngine(User user) : base("GameEngine")
         {
-            _gameTimer.Elapsed += GameTimer_Elapsed;
-
             this.User = user;
         }
 
-        protected override void Start(object param)
+        protected override void ThreadStart()
         {
-            Random random = new Random(0);
+            _gameTimer = new System.Timers.Timer();
+            _cancellationTokenSource = new CancellationTokenSource();
 
-            random.Next();
+            _gameTimer.Elapsed += GameTimer_Elapsed;
 
-            _gameTimer.Interval = 10;
+            _gameTimer.Interval = 5000;
             _gameTimer.Start();
+            _startTime = DateTime.Now;
 
-            while (true)
+            while (!_cancellationTokenSource.IsCancellationRequested)
             {
                 continue;
             }
+        }
+        protected override void ThreadStop()
+        {
+            if (!_cancellationTokenSource.IsCancellationRequested)
+            {
+                _cancellationTokenSource.Cancel();
+            }
+
+            return;
         }
 
         protected void GameTimer_Elapsed(object sender, ElapsedEventArgs e)
@@ -440,7 +550,7 @@ namespace FNAF.Engines
                     // logic will remove the game event once it's completed but for now gate on 
                     // the Complete property.
                     //
-                    if (soundEvent.Complete || soundEvent.SignalTime > signalTime.Second)
+                    if (soundEvent.Complete || signalTime < _startTime.Add(soundEvent.SignalTime))
                     {
                         continue;
                     }
@@ -452,6 +562,7 @@ namespace FNAF.Engines
                         soundEvent.Sound, 
                         SoundPriority.Immediate
                     );
+                    soundEvent.Complete = true;
                 }
                 //
                 // handle developer error not implementing game event types. If the developer is 
@@ -506,24 +617,30 @@ namespace FNAF.Engines
             return new CameraForm();
         }
 
-        public static void ShowForm(FormBase form, Control control, bool closeParentForm)
+        public void UpdateForm(FormBase targetForm, FormBase sourceForm)
         {
-            Control parent = control.Parent;
-
-            while (!(parent is Form))
+            foreach (PropertyInfo property in typeof(FormBase).GetProperties())
             {
-                parent = parent.Parent;
+                foreach (Attribute attribute in property.GetCustomAttributes(true))
+                {
+                    if (attribute is FormBaseAttribute)
+                    {
+                        object sourceFormValue = property.GetValue(sourceForm);
+
+                        property.SetValue(targetForm, sourceFormValue);
+                    }
+                }
             }
 
-            Form parentForm = (Form)parent;
-
-            form.Show();
-            parentForm.Close();
+            targetForm.Refresh();
+            targetForm.Update();
         }
 
-        public static void ShowForm(Form form)
+        public static void ShowForm(FormBase form, FormBase parent)
         {
             form.Show();
+
+            if (parent != null) parent.Close();
         }
     }
 }

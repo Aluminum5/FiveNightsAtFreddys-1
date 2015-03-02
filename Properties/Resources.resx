@@ -118,35 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="BBHello" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\audio\bbhello.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="BBHi" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\audio\bbhi.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="BBLaugh" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\audio\bblaugh.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="BonnieScream" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\audio\bonniescream.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="CameraMap" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\images\cameramap\cameramap.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ChicaScream" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\audio\chicascream.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="FoxRunning1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\audio\foxrunning1.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="FoxyRunning2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\audio\foxyrunning2.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="FoxyRunning3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\audio\foxyrunning3.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="FoxyRunning4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\audio\foxyrunning4.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="FreddyMask" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\images\office\freddymask.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -171,12 +144,6 @@
   </data>
   <data name="GameAreaNoFlashlightNoBB" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\images\camera10\gameareanoflashlightnobb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="GoldenFreddyScream" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\audio\goldenfreddyscream.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Jackinthebox" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\audio\jackinthebox.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="KidsCoveFlashlightMangle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\images\camera12\kidscoveflashlightmangle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -249,15 +216,6 @@
   </data>
   <data name="MainMenuNoGlitch" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\images\startmenuitems\mainmenunoglitch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MangleStatic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\audio\manglestatic.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="MarrionetteScream" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\audio\marrionettescream.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="MusicBoxSong" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\audio\musicboxsong.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="OfficeBB" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\images\office\officebb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -457,10 +415,7 @@
   <data name="ShowStageNoFlashlightToyFreddyAndToyChica" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\images\camera9\showstagenoflashlighttoyfreddyandtoychica.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="StartMenuThemeMusic" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\audio\startmenuthememusic.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="String" xml:space="preserve">
+  <data name="BBHello" xml:space="preserve">
     <value />
   </data>
   <data name="Continue" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -586,10 +541,43 @@
   <data name="Power_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\images\shared\power_5.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Night1PhoneCall" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Night1PhoneCall.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="BBHi" xml:space="preserve">
+    <value />
   </data>
-  <data name="VariousFNAFSound" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\VariousFNAFSound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="BBLaugh" xml:space="preserve">
+    <value />
+  </data>
+  <data name="BonnieScream" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ChicaScream" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FoxyRunning1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FoxyRunning2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FoxyRunning3" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FoxyRunning4" xml:space="preserve">
+    <value />
+  </data>
+  <data name="GoldenFreddyScream" xml:space="preserve">
+    <value />
+  </data>
+  <data name="JackInTheBox" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MangleStatic" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MusicBoxSong" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StartMenuThemeSong" xml:space="preserve">
+    <value />
   </data>
 </root>

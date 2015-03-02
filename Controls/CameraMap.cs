@@ -33,8 +33,9 @@ namespace FNAF.Controls
 
             FormBase form = GetForm(button);
 
-            GameEngine.ShowForm(form, this, true);
+            FormBase parent = GetParentForm();
 
+            ThreadingEngine.GetThread<GameEngine>().UpdateForm(parent, form);
         }
 
         private CharacterCollection GetCharacters(Button button)
@@ -109,41 +110,46 @@ namespace FNAF.Controls
                     return ThreadingEngine.GetThread<GameEngine>().GetCameraForm(RoomType.PartyRoom4);
 
                 case "Camera5Button":
-                    return ThreadingEngine.GetThread<GameEngine>().GetCameraForm(RoomType.MainHall);
+                    return ThreadingEngine.GetThread<GameEngine>().GetCameraForm(RoomType.LeftAirVent);
 
                 case "Camera6Button":
-
-                    break;
+                    return ThreadingEngine.GetThread<GameEngine>().GetCameraForm(RoomType.RightAirVent);
 
                 case "Camera7Button":
-
-                    break;
+                    return ThreadingEngine.GetThread<GameEngine>().GetCameraForm(RoomType.MainHall);
 
                 case "Camera8Button":
-
-                    break;
+                    return ThreadingEngine.GetThread<GameEngine>().GetCameraForm(RoomType.PartsService);
 
                 case "Camera9Button":
-
-                    break;
+                    return ThreadingEngine.GetThread<GameEngine>().GetCameraForm(RoomType.ShowStage);
 
                 case "Camera10Button":
-
-                    break;
+                    return ThreadingEngine.GetThread<GameEngine>().GetCameraForm(RoomType.GameArea);
 
                 case "Camera11utton":
-
-                    break;
+                    return ThreadingEngine.GetThread<GameEngine>().GetCameraForm(RoomType.PrizeCorner);
 
                 case "Camera12Button":
-
-                    break;
+                    return ThreadingEngine.GetThread<GameEngine>().GetCameraForm(RoomType.KidsCove);
 
                 case "YouButton":
                     return new OfficeForm();
             }
 
             return new CameraForm();
+        }
+
+        private FormBase GetParentForm()
+        {
+            Control parent = this.Parent;
+
+            while (!(parent is FormBase))
+            {
+                parent = parent.Parent;
+            }
+
+            return (FormBase)parent;
         }
     }
 }

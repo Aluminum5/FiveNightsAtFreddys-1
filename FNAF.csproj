@@ -47,6 +47,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -57,8 +58,10 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\FormAttribute.cs" />
     <Compile Include="Common\FormData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,21 +154,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Audio\BBHello.wav" />
-    <Content Include="Resources\Audio\BBHi.wav" />
-    <Content Include="Resources\Audio\BBLaugh.wav" />
-    <Content Include="Resources\Audio\BonnieScream.wav" />
-    <Content Include="Resources\Audio\ChicaScream.wav" />
-    <Content Include="Resources\Audio\FoxRunning1.wav" />
-    <Content Include="Resources\Audio\FoxyRunning2.wav" />
-    <Content Include="Resources\Audio\FoxyRunning3.wav" />
-    <Content Include="Resources\Audio\FoxyRunning4.wav" />
-    <Content Include="Resources\Audio\GoldenFreddyScream.wav" />
-    <Content Include="Resources\Audio\Jackinthebox.wav" />
-    <Content Include="Resources\Audio\MangleStatic.wav" />
-    <Content Include="Resources\Audio\MarrionetteScream.wav" />
-    <Content Include="Resources\Audio\MusicBoxSong.wav" />
-    <Content Include="Resources\Audio\StartMenuThemeMusic.wav" />
     <Content Include="Resources\Images\Camera10\GameAreaFlashlightBB.png" />
     <Content Include="Resources\Images\Camera10\GameAreaFlashlightBBAndMangle.png" />
     <Content Include="Resources\Images\Camera10\GameAreaFlashlightBBAndToyFreddy.png" />
@@ -301,8 +289,6 @@
     <Content Include="Resources\Images\StartMenuItems\NewGame.jpg" />
     <Content Include="Resources\Images\StartMenuItems\NewGameMouseOver.jpg" />
     <Content Include="Resources\Images\StartMenuItems\StartScreen.jpg" />
-    <None Include="Resources\VariousFNAFSound.wav" />
-    <None Include="Resources\Night1PhoneCall.wav" />
     <None Include="Resources\Images\StartMenuItems\MainMenuNoGlitch.png" />
     <None Include="Resources\Images\StartMenuItems\MainMenuFreddyGlitch.png" />
     <None Include="Resources\Images\StartMenuItems\MainMenuBonnieGlitch.png" />

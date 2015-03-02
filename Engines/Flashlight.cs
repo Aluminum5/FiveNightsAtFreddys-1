@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 
@@ -58,9 +59,10 @@ namespace FNAF.Engines
         /// </summary>
         private bool _on = false;
         private ushort _powerRemaining = 100;
-        private Timer _timer = new Timer(TIMER_INTERVAL);
+        private System.Timers.Timer _timer;
         private object _lock = new object();
         private Image _image = global::FNAF.Properties.Resources.Power_100;
+        protected CancellationTokenSource _cancellationTokenSource;
 
         /// <summary>
         /// The percentage of Power that is remaining before the flashlight can no longer be 
@@ -110,22 +112,27 @@ namespace FNAF.Engines
         /// </summary>
         public Flashlight() : base("Flashlight")
         {
-            //
-            // The event that will be triggered when the timer starts and the timer only starts 
-            // when the flashlight has changed.
-            //
-            _timer.Elapsed += Timer_Elapsed;
+
         }
 
         /// <summary>
         /// Start begins the infinite loop for this thread monitoring the light on variables
         /// </summary>
-        protected override void Start(object param)
+        protected override void ThreadStart()
         {
+            _timer = new System.Timers.Timer(TIMER_INTERVAL);
+            _cancellationTokenSource = new CancellationTokenSource();
+
+            //
+            // The event that will be triggered when the timer starts and the timer only starts 
+            // when the flashlight has changed.
+            //
+            _timer.Elapsed += Timer_Elapsed;
+
             //
             // Main flashlight loop. This does not exit until signaled by thread caller
             //
-            while (true)
+            while (!_cancellationTokenSource.IsCancellationRequested)
             {
                 //
                 // If the flashlight is on but the timer has not started, start the timer to track 
@@ -181,6 +188,19 @@ namespace FNAF.Engines
                 }
             } // Main while loop
         } // Start()
+        /// <summary>
+        /// Signals the cancellation token so that the thread will stop.
+        /// </summary>
+        protected override void ThreadStop()
+        {
+            if (!_cancellationTokenSource.IsCancellationRequested)
+            {
+                _cancellationTokenSource.Cancel();
+            }
+
+            return;
+        }
+
         /// <summary>
         /// Turns the flashlight on starting the power drain.
         /// </summary>

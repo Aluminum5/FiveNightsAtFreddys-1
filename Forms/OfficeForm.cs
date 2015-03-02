@@ -43,6 +43,8 @@ namespace FNAF.Forms
             base.DefaultFlashlightOnImage = global::FNAF.Properties.Resources.OfficeFlashlightNoCharacters;
             base.SupportsFlashlight = true;
             base.SupportsMask = true;
+            base.SupportsMap = true;
+            this.AutoScrollBackForth = true;
 
             InitializeComponent();
         }

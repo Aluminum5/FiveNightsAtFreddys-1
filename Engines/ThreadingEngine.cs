@@ -29,15 +29,16 @@ namespace FNAF.Engines
 
         public void Stop()
         {
-            this.Thread.Abort();
+            ThreadStop();
+            this.Thread.Join();
         }
 
-        protected abstract void Start(object param);
+        protected abstract void ThreadStart();
+        protected abstract void ThreadStop();
 
         private void Initialize(string name)
         {
-            ParameterizedThreadStart startInfo = new ParameterizedThreadStart(this.Start);
-            this.Thread = new Thread(startInfo);
+            this.Thread = new Thread(new ThreadStart(this.ThreadStart));
             this.Name = name;
         }
     }
@@ -96,9 +97,9 @@ namespace FNAF.Engines
         public static void StopThread(ThreadBase thread)
         {
             if (
-                    thread.Thread.ThreadState == ThreadState.Running ||
-                    thread.Thread.ThreadState == ThreadState.Suspended ||
-                    thread.Thread.ThreadState == ThreadState.Running
+                    thread.Thread.ThreadState != ThreadState.Stopped &&
+                    thread.Thread.ThreadState != ThreadState.StopRequested &&
+                    thread.Thread.ThreadState != ThreadState.AbortRequested
                 )
             {
                 thread.Stop();
@@ -117,7 +118,7 @@ namespace FNAF.Engines
             {
                 if (existingThread.Name == thread.Name)
                 {
-                    throw new ArgumentException("Thread name already exists in the thread engine.");
+                    return;
                 }
             }
 

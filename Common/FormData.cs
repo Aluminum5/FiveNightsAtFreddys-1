@@ -4,6 +4,7 @@ using FNAF.Forms;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -31,6 +32,8 @@ namespace FNAF.Common
     public abstract class FormBase : Form
     {
         private Flashlight _flashlight;
+        private bool _keyDownEventHandling = true;
+        private Timer _scrollBackForthTimer;
 
         protected Flashlight Flashlight
         {
@@ -40,17 +43,30 @@ namespace FNAF.Common
             }
         }
 
+        [FormBase(FormBaseType.FormBase)]
         public bool SupportsMask;
+        [FormBase(FormBaseType.FormBase)]
         public bool SupportsFlashlight;
+        [FormBase(FormBaseType.FormBase)]
         public bool SupportsMap;
+        [FormBase(FormBaseType.FormBase)]
+        public bool AutoScrollBackForth;
+        [FormBase(FormBaseType.FormBase)]
         public PictureBox BackgroundPictureBox;
+        [FormBase(FormBaseType.FormBase)]
         public PictureBox FlashlightPowerPictureBox;
+        [FormBase(FormBaseType.FormBase)]
         public PictureBox MaskPictureBox;
+        [FormBase(FormBaseType.FormBase)]
         public CameraMap CameraMap;
+        [FormBase(FormBaseType.FormBase)]
         public Image DefaultImage;
+        [FormBase(FormBaseType.FormBase)]
         public Image DefaultFlashlightOnImage;
+        [FormBase(FormBaseType.FormBase)]
         public Sound Sound;
-        public RoomType RoomType;
+        [FormBase(FormBaseType.FormBase)]
+        public RoomType RoomType;        
 
         public FormBase(string name, bool supportsMask = false, bool supportsFlashlight = true)
         {
@@ -69,6 +85,14 @@ namespace FNAF.Common
             this.BackgroundPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.BackgroundPictureBox.Size = new Size(this.Size.Width - 5, this.Size.Height - 15);
             this.Controls.Add(this.BackgroundPictureBox);
+
+            if (this.AutoScrollBackForth)
+            {
+                _scrollBackForthTimer = new Timer();
+                _scrollBackForthTimer.Interval = 500; // 1/2 second
+
+                this.BackgroundPictureBox.Size = new Size(this.Size.Width + 100, this.Size.Height + 100);
+            }
 
             if (this.SupportsFlashlight)
             {
@@ -110,7 +134,7 @@ namespace FNAF.Common
                 //
                 this.CameraMap = new CameraMap();
                 this.CameraMap.BackColor = System.Drawing.Color.Transparent;
-                this.CameraMap.Location = new System.Drawing.Point(this.Size.Height - 200, this.Size.Width - 200);
+                this.CameraMap.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
                 this.CameraMap.Visible = true;
 
                 this.BackgroundPictureBox.Controls.Add(this.CameraMap);
@@ -120,13 +144,21 @@ namespace FNAF.Common
 
             base.OnLoad(e);
         }
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            if (this.Sound != null)
+            {
+                ThreadingEngine.GetThread<SoundEngine>().StopSound(this.Sound);
+            }            
+
+            base.OnClosing(e);
+        }
 
         protected void Flashlight_OutOfPower(object sender, EventArgs e)
         {
             _flashlight.TurnOff();
             this.BackgroundPictureBox.Image = this.DefaultImage;
         }
-
         protected void Flashlight_ImageChanged(object sender, EventArgs e)
         {
             this.FlashlightPowerPictureBox.Image = _flashlight.Image;
@@ -187,6 +219,10 @@ namespace FNAF.Common
             this.ResumeLayout(true);
 
             return;
+        }
+        protected void ToggleKeyDownEventHandling(bool disable)
+        {
+            _keyDownEventHandling = !disable;
         }
     }
 }

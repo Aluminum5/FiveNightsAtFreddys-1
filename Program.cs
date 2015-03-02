@@ -18,7 +18,12 @@ namespace FNAF
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new StartMenuForm());
+
+            new StartMenuForm().Show();
+
+            Application.Run();
+
+            ThreadingEngine.Dispose();
         }
     }
 }

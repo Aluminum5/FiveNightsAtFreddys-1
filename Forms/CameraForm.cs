@@ -17,6 +17,7 @@ namespace FNAF.Forms
 {
     public partial class CameraForm : FormBase
     {
+        [FormBase(FormBaseType.Camera)]
         public CharacterCollection Characters;        
 
         public CameraForm() : this("RoomForm")
@@ -34,16 +35,6 @@ namespace FNAF.Forms
             {
                 base.Sound = ThreadingEngine.GetThread<SoundEngine>().PlaySound(Sound);
             }
-        }
-
-        protected override void OnClosing(CancelEventArgs e)
-        {
-            if (base.Sound != null)
-            {
-                ThreadingEngine.GetThread<SoundEngine>().StopSound(base.Sound);
-            }
-
-            base.OnClosing(e);
         }
     }
 }

@@ -37,12 +37,12 @@
             this.Camera2Button = new System.Windows.Forms.Button();
             this.Camera1Button = new System.Windows.Forms.Button();
             this.CameraMapPictureBox = new System.Windows.Forms.PictureBox();
-            this.YouButton = new System.Windows.Forms.Label();
-            this.YouButtonPanel = new System.Windows.Forms.Panel();
-            this.Camera9Button = new System.Windows.Forms.Button();
-            this.Camera10Button = new System.Windows.Forms.Button();
-            this.Camera11Button = new System.Windows.Forms.Button();
             this.Camera12Button = new System.Windows.Forms.Button();
+            this.Camera11Button = new System.Windows.Forms.Button();
+            this.Camera10Button = new System.Windows.Forms.Button();
+            this.Camera9Button = new System.Windows.Forms.Button();
+            this.YouButtonPanel = new System.Windows.Forms.Panel();
+            this.YouButton = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.CameraMapPictureBox)).BeginInit();
             this.CameraMapPictureBox.SuspendLayout();
             this.YouButtonPanel.SuspendLayout();
@@ -127,8 +127,9 @@
             // 
             // Camera1Button
             // 
+            this.Camera1Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Camera1Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Camera1Button.Location = new System.Drawing.Point(44, 117);
+            this.Camera1Button.Location = new System.Drawing.Point(-60, 117);
             this.Camera1Button.Name = "Camera1Button";
             this.Camera1Button.Size = new System.Drawing.Size(45, 20);
             this.Camera1Button.TabIndex = 8;
@@ -139,66 +140,27 @@
             // CameraMapPictureBox
             // 
             this.CameraMapPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.CameraMapPictureBox.Controls.Add(this.Camera12Button);
+            this.CameraMapPictureBox.Controls.Add(this.Camera11Button);
+            this.CameraMapPictureBox.Controls.Add(this.Camera10Button);
+            this.CameraMapPictureBox.Controls.Add(this.Camera9Button);
+            this.CameraMapPictureBox.Controls.Add(this.Camera8Button);
+            this.CameraMapPictureBox.Controls.Add(this.Camera7Button);
+            this.CameraMapPictureBox.Controls.Add(this.Camera6Button);
+            this.CameraMapPictureBox.Controls.Add(this.Camera5Button);
+            this.CameraMapPictureBox.Controls.Add(this.Camera4Button);
+            this.CameraMapPictureBox.Controls.Add(this.Camera3Button);
+            this.CameraMapPictureBox.Controls.Add(this.Camera2Button);
+            this.CameraMapPictureBox.Controls.Add(this.Camera1Button);
             this.CameraMapPictureBox.Controls.Add(this.YouButtonPanel);
+            this.CameraMapPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CameraMapPictureBox.Image = global::FNAF.Properties.Resources.CameraMap;
             this.CameraMapPictureBox.Location = new System.Drawing.Point(0, 0);
             this.CameraMapPictureBox.Name = "CameraMapPictureBox";
-            this.CameraMapPictureBox.Size = new System.Drawing.Size(350, 225);
-            this.CameraMapPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.CameraMapPictureBox.Size = new System.Drawing.Size(596, 474);
+            this.CameraMapPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.CameraMapPictureBox.TabIndex = 16;
             this.CameraMapPictureBox.TabStop = false;
-            // 
-            // YouButton
-            // 
-            this.YouButton.AutoSize = true;
-            this.YouButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.YouButton.Location = new System.Drawing.Point(93, 158);
-            this.YouButton.Name = "YouButton";
-            this.YouButton.Size = new System.Drawing.Size(23, 12);
-            this.YouButton.TabIndex = 21;
-            this.YouButton.Text = "You";
-            // 
-            // YouButtonPanel
-            // 
-            this.YouButtonPanel.Controls.Add(this.YouButton);
-            this.YouButtonPanel.Location = new System.Drawing.Point(79, 149);
-            this.YouButtonPanel.Name = "YouButtonPanel";
-            this.YouButtonPanel.Size = new System.Drawing.Size(49, 40);
-            this.YouButtonPanel.TabIndex = 21;
-            this.YouButtonPanel.Click += new System.EventHandler(this.CameraButton_Click);
-            // 
-            // Camera9Button
-            // 
-            this.Camera9Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Camera9Button.Location = new System.Drawing.Point(234, 16);
-            this.Camera9Button.Name = "Camera9Button";
-            this.Camera9Button.Size = new System.Drawing.Size(45, 20);
-            this.Camera9Button.TabIndex = 17;
-            this.Camera9Button.Text = "Cam9";
-            this.Camera9Button.UseVisualStyleBackColor = true;
-            this.Camera9Button.Click += new System.EventHandler(this.CameraButton_Click);
-            // 
-            // Camera10Button
-            // 
-            this.Camera10Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Camera10Button.Location = new System.Drawing.Point(181, 95);
-            this.Camera10Button.Name = "Camera10Button";
-            this.Camera10Button.Size = new System.Drawing.Size(45, 20);
-            this.Camera10Button.TabIndex = 18;
-            this.Camera10Button.Text = "Cam10";
-            this.Camera10Button.UseVisualStyleBackColor = true;
-            this.Camera10Button.Click += new System.EventHandler(this.CameraButton_Click);
-            // 
-            // Camera11Button
-            // 
-            this.Camera11Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Camera11Button.Location = new System.Drawing.Point(262, 70);
-            this.Camera11Button.Name = "Camera11Button";
-            this.Camera11Button.Size = new System.Drawing.Size(45, 20);
-            this.Camera11Button.TabIndex = 19;
-            this.Camera11Button.Text = "Cam11";
-            this.Camera11Button.UseVisualStyleBackColor = true;
-            this.Camera11Button.Click += new System.EventHandler(this.CameraButton_Click);
             // 
             // Camera12Button
             // 
@@ -211,33 +173,74 @@
             this.Camera12Button.UseVisualStyleBackColor = true;
             this.Camera12Button.Click += new System.EventHandler(this.CameraButton_Click);
             // 
+            // Camera11Button
+            // 
+            this.Camera11Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Camera11Button.Location = new System.Drawing.Point(262, 70);
+            this.Camera11Button.Name = "Camera11Button";
+            this.Camera11Button.Size = new System.Drawing.Size(45, 20);
+            this.Camera11Button.TabIndex = 19;
+            this.Camera11Button.Text = "Cam11";
+            this.Camera11Button.UseVisualStyleBackColor = true;
+            this.Camera11Button.Click += new System.EventHandler(this.CameraButton_Click);
+            // 
+            // Camera10Button
+            // 
+            this.Camera10Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Camera10Button.Location = new System.Drawing.Point(181, 95);
+            this.Camera10Button.Name = "Camera10Button";
+            this.Camera10Button.Size = new System.Drawing.Size(45, 20);
+            this.Camera10Button.TabIndex = 18;
+            this.Camera10Button.Text = "Cam10";
+            this.Camera10Button.UseVisualStyleBackColor = true;
+            this.Camera10Button.Click += new System.EventHandler(this.CameraButton_Click);
+            // 
+            // Camera9Button
+            // 
+            this.Camera9Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Camera9Button.Location = new System.Drawing.Point(234, 16);
+            this.Camera9Button.Name = "Camera9Button";
+            this.Camera9Button.Size = new System.Drawing.Size(45, 20);
+            this.Camera9Button.TabIndex = 17;
+            this.Camera9Button.Text = "Cam9";
+            this.Camera9Button.UseVisualStyleBackColor = true;
+            this.Camera9Button.Click += new System.EventHandler(this.CameraButton_Click);
+            // 
+            // YouButtonPanel
+            // 
+            this.YouButtonPanel.Controls.Add(this.YouButton);
+            this.YouButtonPanel.Location = new System.Drawing.Point(0, 0);
+            this.YouButtonPanel.Name = "YouButtonPanel";
+            this.YouButtonPanel.Size = new System.Drawing.Size(82, 70);
+            this.YouButtonPanel.TabIndex = 21;
+            this.YouButtonPanel.Click += new System.EventHandler(this.CameraButton_Click);
+            // 
+            // YouButton
+            // 
+            this.YouButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.YouButton.AutoSize = true;
+            this.YouButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.YouButton.Location = new System.Drawing.Point(93, 158);
+            this.YouButton.Name = "YouButton";
+            this.YouButton.Size = new System.Drawing.Size(23, 12);
+            this.YouButton.TabIndex = 21;
+            this.YouButton.Text = "You";
+            // 
             // CameraMap
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.Transparent;
-            this.Controls.Add(this.Camera12Button);
-            this.Controls.Add(this.Camera11Button);
-            this.Controls.Add(this.Camera10Button);
-            this.Controls.Add(this.Camera9Button);
-            this.Controls.Add(this.Camera8Button);
-            this.Controls.Add(this.Camera7Button);
-            this.Controls.Add(this.Camera6Button);
-            this.Controls.Add(this.Camera5Button);
-            this.Controls.Add(this.Camera4Button);
-            this.Controls.Add(this.Camera3Button);
-            this.Controls.Add(this.Camera2Button);
-            this.Controls.Add(this.Camera1Button);
             this.Controls.Add(this.CameraMapPictureBox);
             this.Margin = new System.Windows.Forms.Padding(0);
-            this.MaximumSize = new System.Drawing.Size(356, 251);
-            this.MinimumSize = new System.Drawing.Size(356, 231);
             this.Name = "CameraMap";
-            this.Size = new System.Drawing.Size(356, 231);
+            this.Size = this.CameraMapPictureBox.Size;
             ((System.ComponentModel.ISupportInitialize)(this.CameraMapPictureBox)).EndInit();
             this.CameraMapPictureBox.ResumeLayout(false);
             this.YouButtonPanel.ResumeLayout(false);
             this.YouButtonPanel.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
